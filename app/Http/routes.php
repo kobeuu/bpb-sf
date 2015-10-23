@@ -10,13 +10,11 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::get('/', function(){
-	return 'Home Page';
-});
+Route::get('/', 'PagesController@index');
+Route::get('profil', 'PagesController@profile');
+Route::get('kontak', 'PagesController@contact');
 
-Route::get('about', 'PagesController@about');
-Route::get('contact', 'PagesController@contact');
-
+Route::get('articles/list', 'ArticlesController@listArticles');
 Route::resource('articles', 'ArticlesController');
 
 Route::get('tags/{tags}', 'TagsController@show');
@@ -29,3 +27,5 @@ Route::controllers([
 Route::get('foo', ['middleware' => 'manager', function(){
 	return 'this page may only be viewed by managers';
 }]);
+
+Route::get('dashboard', 'DashboardController@index');

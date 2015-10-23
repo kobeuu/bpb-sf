@@ -7,19 +7,33 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller {
 
-	//
-	public function about()
-	{
-		$people = [
-			'first person' , 'second person'
-		];
+	/**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return view('pages.index');
+    }
 
-		return view('pages.about', compact('people'));
-	}
+    /**
+     * display profile page.
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function profil()
+    {
+        return view('pages.profile');
+    }
 
-	public function contact()
-	{
-		return view('pages.contact');
-	}
-
+    /**
+     * display kontak page.
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function contact()
+    {
+        return view('pages.contact');
+    }
 }

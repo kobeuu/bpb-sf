@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>BPB Sinergi Foudation</title>
 	<link rel="stylesheet" type="text/css" href="{{ url( elixir('css/all.css') ) }}">
 </head>
 <body>
-	@include('partials.nav')
 
 	<div class="container">
 		@include('flash::message')

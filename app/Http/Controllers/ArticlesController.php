@@ -125,4 +125,9 @@ class ArticlesController extends Controller
 		return $article;
 	}
 
+	public function listArticles(Article $article)
+	{
+		return view('articles.list', compact('article'));
+	}
+
 }

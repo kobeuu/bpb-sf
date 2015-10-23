@@ -1,19 +1,22 @@
-@extends('app')
+@extends('main')
 
 @section('content')
-	<h1>{{ $article->title }}</h1>
+<div class="container">
+<section id="content">
 
-	<article>
-		{{ $article->body }}
-	</article>
+	<h1> {{ $article->title }} </h1>
+	<p> {!! $article->body !!} </p>
 
 	@unless ($article->tags->isEmpty())
-		<h5>Tag:</h5>
+		<h5>Tags :</h5>
 		<ul>
 			@foreach ($article->tags as $tag)
-				<li>{!! link_to_action('TagsController@show', $tag->name, ['name' => $tag->name]) !!}</li>
+				<li> {{ $tag->name }} </li>
 			@endforeach
 		</ul>
-	@endif
+	@endunless
+	
+</section>
+</div>
 
-@stop
+@endsection
