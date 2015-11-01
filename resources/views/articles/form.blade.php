@@ -1,36 +1,51 @@
-<div class="form-group">
-	{!! Form::label('title', 'Title:') !!}
-	{!! Form::text('title', null, ['class' => 'form-control']) !!}
+<div class="col-md-9">
+
+	<div class="box">
+		<div class="box-body">
+			<div class="form-group">
+				{!! Form::text('title', null, ['class' => 'form-control', 'style' => 'font-size: 18px; padding: 14px;', 'placeholder' => 'Enter title here']) !!}
+			</div>
+			<span class="pad">
+			<div class="form-group">
+				{!! Form::textarea('body', null, ['id' => 'body', 'class' => 'form-control', 'style' => 'width: 100%; height: 300px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;']) !!}
+			</div>
+
+			<div class="form-group">
+				{!! Form::textarea('excerpt', null, ['class' => 'form-control', 'style' => 'width: 100%; height: 150px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;']) !!}
+			</div>
+		</div>
+	</div>
 </div>
 
-<div class="form-group">
-	{!! Form::label('body', 'Body:') !!}
-	{!! Form::textarea('body', null, ['class' => 'form-control']) !!}
-</div>
+<div class="col-md-3">
+	<div class="box">
+		<div class="box-body">
 
-<div class="form-group">
-	{!! Form::label('published_at', 'Publish On:') !!}
-	{!! Form::input('date', 'published_at', $article->published_at, ['class' => 'form-control']) !!}
-</div>
+			<div class="form-group">
+				{!! Form::label('published_at', 'Publish On:') !!}
+				{!! Form::input('date', 'published_at', $article->published_at, ['class' => 'form-control']) !!}
+			</div>
 
-<div class="form-group">
-	{!! Form::label('tag_list', 'Tags:') !!}
-	{!! Form::select('tag_list[]', $tags, null, ['id' => 'tag_list', 'class' => 'form-control', 'multiple']) !!}
-</div>
+			<div class="form-group">
+				{!! Form::label('tag_list', 'Tags:') !!}
+				{!! Form::select('tag_list[]', $tags, null, ['id' => 'tag_list', 'class' => 'form-control', 'multiple']) !!}
+			</div>
 
-<div class="form-group">
-	{!! Form::label('tag_list', 'Featured Image:') !!}
-	{!! Form::file('tag_list[]', $tags, null, ['id' => 'tag_list', 'class' => 'form-control', 'multiple']) !!}
-</div>
+			<div class="form-group">
+				{!! Form::label('tag_list', 'Featured Image:') !!}
+				{!! Form::file('images', ['class' => 'form-control']) !!}
+			</div>
 
-<div class="form-group">
-	{!! Form::submit($submitButtonText, ['class' => 'btn btn-primary form-control']) !!}
-</div>
+		</div>
 
-@section('footer')
-	<script type="text/javascript">
-		$('#tag_list').select2({
-			placeholder: 'Choose a tag'
-		});
-	</script>
-@stop
+		<div class="box-footer">
+
+			<div class="form-group">
+				{!! Form::submit($submitButtonText, ['class' => 'btn btn-primary form-control']) !!}
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

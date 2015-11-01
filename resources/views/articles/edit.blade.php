@@ -3,16 +3,10 @@
 @section('page_title', 'Edit Article')
 
 @section('content')
-	<div class="container">
-		<div class="row">
-	        <div class="col-md-11">
 
-				{!! Form::model($article , ['method' => 'PATCH', 'action' => ['ArticlesController@update' , $article->id]]) !!}
-					@include('articles.form', ['submitButtonText' => 'Update Article'])
-				{!! Form::close() !!}
-			</div>
-		</div>
-	</div>
+		{!! Form::model($article , ['method' => 'PATCH', 'action' => ['ArticlesController@update' , $article->id]]) !!}
+			@include('articles.form', ['submitButtonText' => 'Update'])
+		{!! Form::close() !!}
 
 	@include('errors.list')
 
@@ -20,6 +14,7 @@
 
 @section('script')
 	$(function () {
-        $("textarea").wysihtml5();
+        $("#body").wysihtml5();
+				$('#tag_list').select2();
     });
 @endsection

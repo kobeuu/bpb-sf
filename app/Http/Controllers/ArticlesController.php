@@ -113,14 +113,20 @@ class ArticlesController extends Controller
 
 	/**
 	 * Save a new article
+	 *
 	 * @param  ArticleRequest $request
 	 * @return mixed
 	 */
 	private function createArticle(ArticleRequest $request)
 	{
+		$request->file('images')->move(public_path('uploads/images'), $request->file('images')->getClientOriginalName());
+
+    $request->image = public_path('uploads/images') . '/' . $request->file('images')->getClientOriginalName();
+
 		$article = Auth::user()->articles()->create($request->all());
 
 		$this->syncTags($article, $request->input('tag_list'));
+
 
 		return $article;
 	}
