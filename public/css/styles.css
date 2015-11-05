@@ -20,6 +20,14 @@ address {
 	margin-bottom: 8px;
 }
 
+.tags ul {
+	/*list-style-type: none;*/
+}
+
+.tags ul li{
+	display: inline;
+}
+
 #content {
 	padding-bottom: 32px;
 }

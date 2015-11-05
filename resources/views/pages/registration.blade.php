@@ -5,19 +5,35 @@
 @section('content')
 
 @include('partials.title')
+<section>
+  <div class="container">
+    <div class="row">
 
-<section id="form-registration">
-  <div class="form-group">
-    <label class="col-md-4 control-label">E-Mail Address</label>
-    <div class="col-md-6">
-      <input type="email" class="form-control" name="email" value="{{ old('email') }}">
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label class="col-md-4 control-label">Password</label>
-    <div class="col-md-6">
-      <input type="password" class="form-control" name="password">
+      <div class="col-md-8">
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Nama Lengkap</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nama Lengkap">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Alamat Email</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Alamat Email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Nomor Handphone</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Nomor Handphone">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Subjek Pesan</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Subjek Pesan">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Pesan</label>
+            <textarea class="form-control" rows="5"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
     </div>
   </div>
 </section>

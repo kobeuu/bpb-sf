@@ -39,7 +39,7 @@
         <h2 class="heading">Berita Aktivitas</h2>
       </div>
       <div class="col-sm-6 col-md-6 text-right btn-semua">
-        <span class="btn-semua">Lihat Semua Berita Aktivitas</span>
+        <span class="btn-semua"> <a href="/articles" > Lihat Semua Berita Aktivitas</a></span>
       </div>
     </div>
     <div class="row">
@@ -198,7 +198,7 @@
     <img class="logo-mitra" src="img/logo-bi.png" alt="logo bi">
     <img class="logo-mitra" src="img/logo-shafira.png" alt="logo shafira">
     <p>Terima kasih dan penghargaan yang setinggi-tingginya kepada setiap donatur institusi dan individu lain yang tidak bisa kami sebutkan satu persatu. Semoga Allah membalas dengan yang lebih baik, dan mengabulkan terbentuknya Indonesia yang mandiri, produktif dan berkarakter.</p>
-    <a href="#" class="btn btn-primary" role="button">Paket Donasi Program</a>
+    <a href="/donasi" class="btn btn-primary" role="button">Paket Donasi Program</a>
   </div>
 </section><!-- /#mitra -->
 @endsection
