@@ -20,7 +20,7 @@
 
       <!-- User Account Menu -->
       <li class="dropdown user user-menu">
-        <a href="/articles/create/" class="dropdown-toggle" data-toggle="dropdown">
+        <a href="{{ url('/articles/create') }}">
           <span class="hidden-xs">Write New Article</span>
         </a>
       </li>

@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class RegistrarsController extends Controller {
+class NewsController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -24,7 +24,7 @@ class RegistrarsController extends Controller {
 	 */
 	public function create()
 	{
-		return view('pages.registration');
+		//
 	}
 
 	/**

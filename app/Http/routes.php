@@ -18,6 +18,8 @@ Route::get('gallery', 'PagesController@gallery');
 Route::get('kontak', 'PagesController@kontak');
 Route::get('donasi', 'PagesController@donasi');
 
+Route::get('registration', 'RegistrarsController@create');
+
 Route::get('articles/list', 'ArticlesController@listArticles');
 Route::resource('articles', 'ArticlesController');
 
