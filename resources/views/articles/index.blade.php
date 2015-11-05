@@ -23,15 +23,15 @@
         <ul class="post-list list-unstyled">
           @foreach ($articles as $article)
             <li class="post">
-              <h3 class="post-title">{{ $article->title }}</h3>
+              <h3 class="post-title"><a href="{{ url('/articles', $article->id) }}">{{ $article->title }}</a></h3>
               <span class="meta-post">03 Agustus 2015 | Posted by <a href="#">{!! $article->user_id !!}</a></span>
               <div class="media">
                 <div class="pull-left">
-                  <img class="media-object" src="img/thumb4.svg" alt="...">
+                  <img class="media-object" src="uploads/images/{!! $article->image !!}" height="140" width="220" alt="...">
                 </div>
                 <div class="media-body">
-                  {!! $article->body !!}
-                  <span class="btn-selengkapnya"><a href="{{ url('/articles', $article->id) }}" role="button">Selengkapnya</a></span>
+                  {!! $article->excerpt !!}
+                  <p class="btn-selengkapnya"><a href="{{ url('/articles', $article->id) }}" role="button">Selengkapnya</a></p>
                 </div>
               </div>
             </li>

@@ -15,7 +15,7 @@
 			@endforeach
 		</ul>
 	@endunless
-	
+
 </section>
 </div>
 

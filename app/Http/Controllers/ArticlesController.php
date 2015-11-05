@@ -93,6 +93,15 @@ class ArticlesController extends Controller
 	 */
 	public function update(Article $article, ArticleRequest $request)
 	{
+		if($request->hasFile('image'))
+		{
+				$file = $request->file('image');
+				$image = $file->getClientOriginalName();
+
+				$destinationPath = public_path('/uploads/images/');
+				$request->file('image')->move($destinationPath, $image);
+		}
+
 		$article->update($request->all());
 
 		$this->syncTags($article, $request->input('tag_list'));
@@ -119,17 +128,50 @@ class ArticlesController extends Controller
 	 */
 	private function createArticle(ArticleRequest $request)
 	{
-		$request->file('images')->move(public_path('uploads/images'), $request->file('images')->getClientOriginalName());
+		$article = new Article($request->except('image'));
+    $article -> user_id = Auth::id();
+		if($request->hasFile('image'))
+    {
+        $file = $request->file('image');
+        $filename = $file->getClientOriginalName();
+        $extension = $file ->getClientOriginalExtension();
+        $image = sha1($filename . time()) . '.' . $extension;
 
-    $request->image = public_path('uploads/images') . '/' . $request->file('images')->getClientOriginalName();
+				$destinationPath = public_path('/uploads/images/');
+        $request->file('image')->move($destinationPath, $image);
 
-		$article = Auth::user()->articles()->create($request->all());
+    }
+
+		$article -> image = $image;
+    $article -> save();
 
 		$this->syncTags($article, $request->input('tag_list'));
 
-
 		return $article;
 	}
+
+	/**
+   * Remove the specified resource from storage.
+   *
+   * @param $id
+   * @return Response
+   */
+
+  public function delete(Article $article)
+  {
+      return view('article.delete', compact('article'));
+  }
+
+  /**
+   * Remove the specified resource from storage.
+   *
+   * @param $id
+   * @return Response
+   */
+  public function destroy(Article $article)
+  {
+      $article->delete();
+  }
 
 	public function listArticles(Article $article)
 	{

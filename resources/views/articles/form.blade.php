@@ -7,11 +7,11 @@
 			</div>
 			<span class="pad">
 			<div class="form-group">
-				{!! Form::textarea('body', null, ['id' => 'body', 'class' => 'form-control', 'style' => 'width: 100%; height: 300px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;']) !!}
+				{!! Form::textarea('body', null, ['id' => 'body', 'class' => 'form-control', 'style' => 'width: 100%; height: 220px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;']) !!}
 			</div>
-
 			<div class="form-group">
-				{!! Form::textarea('excerpt', null, ['class' => 'form-control', 'style' => 'width: 100%; height: 150px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;']) !!}
+				{!! Form::label('excerpt', 'Excerpt (maks : 30 word) :') !!}
+				{!! Form::textarea('excerpt', null, ['class' => 'form-control', 'style' => 'width: 100%; height: 60px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;']) !!}
 			</div>
 		</div>
 	</div>
@@ -33,7 +33,7 @@
 
 			<div class="form-group">
 				{!! Form::label('tag_list', 'Featured Image:') !!}
-				{!! Form::file('images', ['class' => 'form-control']) !!}
+				{!! Form::file('image', ['class' => 'form-control']) !!}
 			</div>
 
 		</div>
