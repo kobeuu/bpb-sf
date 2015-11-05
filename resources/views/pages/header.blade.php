@@ -17,7 +17,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li><a href="/profil">Profil</a></li>
-          <li><a href="/prestasi">Peserta</a></li>
+          <li><a href="/peserta">Peserta</a></li>
           <li><a href="/articles">Artikel</a></li>
           <li><a href="/news">Berita</a></li>
           <li><a href="/prestasi">Prestasi</a></li>

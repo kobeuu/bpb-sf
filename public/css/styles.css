@@ -13,7 +13,7 @@ a:hover, a:focus{
 }
 
 section {
-	padding-top: 24px;
+	padding: 24px 0;
 }
 
 address {
@@ -201,10 +201,6 @@ span.glyphicon-search {
 #judul-halaman {
 	background-color : #00a5e2 ;
 	color: #fff;
-	background-size: cover;
-	padding-top: 42px;
-	padding-bottom: 32px;
-	height: 180px;
 }
 
 .page-icon {
