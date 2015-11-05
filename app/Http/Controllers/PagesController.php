@@ -19,21 +19,61 @@ class PagesController extends Controller {
 
     /**
      * display profile page.
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
-    public function profil()
+    public function profile()
     {
         return view('pages.profile');
     }
 
     /**
-     * display kontak page.
-     * 
+     * display profile page.
+     *
      * @return \Illuminate\Http\Response
      */
-    public function contact()
+    public function peserta()
     {
-        return view('pages.contact');
+        return view('pages.peserta');
+    }
+
+    /**
+     * display profile page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function prestasi()
+    {
+        return view('pages.prestasi');
+    }
+
+    /**
+     * display profile page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function gallery()
+    {
+        return view('pages.gallery');
+    }
+
+    /**
+     * display kontak page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function kontak()
+    {
+        return view('pages.kontak');
+    }
+
+    /**
+     * display profile page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function donasi()
+    {
+        return view('pages.donasi');
     }
 }

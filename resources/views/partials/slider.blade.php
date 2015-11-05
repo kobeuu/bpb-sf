@@ -8,6 +8,11 @@
     <div class="item">
       <img src="img/slider/qurban_2015_greenkurban.jpg" alt="green kurban 2015">
     </div>
+    <div class="item">
+      <a href="/registration">
+        <img src="img/slider/form-registrasi.png" alt="green kurban 2015">
+      </a>
+    </div>
   </div>
 
   <!-- Controls -->

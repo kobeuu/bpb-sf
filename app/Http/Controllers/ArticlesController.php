@@ -68,7 +68,7 @@ class ArticlesController extends Controller
 		//flash()->success('Your article has been created!');
 		flash()->overlay('Your article has been successfully created!', 'Good Job');
 
-		return redirect('articles');
+		return redirect('articles/list');
 	}
 
 	/**
@@ -175,7 +175,9 @@ class ArticlesController extends Controller
 
 	public function listArticles(Article $article)
 	{
-		return view('articles.list', compact('article'));
+		$articles = Article::latest('published_at')->get();
+
+		return view('articles.list', compact('articles'));
 	}
 
 }

@@ -17,8 +17,13 @@
   <!-- Navbar Right Menu -->
   <div class="navbar-custom-menu">
     <ul class="nav navbar-nav">
-      
+
       <!-- User Account Menu -->
+      <li class="dropdown user user-menu">
+        <a href="/articles/create/" class="dropdown-toggle" data-toggle="dropdown">
+          <span class="hidden-xs">Write New Article</span>
+        </a>
+      </li>
       <li class="dropdown user user-menu">
         <!-- Menu Toggle Button -->
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -36,7 +41,7 @@
               <small>Beasiswa Pemimpin Bangsa</small>
             </p>
           </li>
-          
+
           <!-- Menu Footer-->
           <li class="user-footer">
             <div class="pull-left">

@@ -12,7 +12,11 @@
 */
 Route::get('/', 'PagesController@index');
 Route::get('profil', 'PagesController@profile');
-Route::get('kontak', 'PagesController@contact');
+Route::get('peserta', 'PagesController@peserta');
+Route::get('prestasi', 'PagesController@prestasi');
+Route::get('gallery', 'PagesController@gallery');
+Route::get('kontak', 'PagesController@kontak');
+Route::get('donasi', 'PagesController@donasi');
 
 Route::get('articles/list', 'ArticlesController@listArticles');
 Route::resource('articles', 'ArticlesController');
