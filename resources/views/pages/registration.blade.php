@@ -11,26 +11,49 @@
 
       <div class="col-md-8">
         <form>
+          <h3>Data Diri Pendaftar</h3>
           <div class="form-group">
-            <label for="exampleInputEmail1">Nama Lengkap</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nama Lengkap">
-          </div>
+    				{!! Form::label('nama', 'Nama Lengkap') !!}
+    				{!! Form::input('nama', 'null', null, ['class' => 'form-control']) !!}
+    			</div>
           <div class="form-group">
-            <label for="exampleInputEmail1">Alamat Email</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Alamat Email">
-          </div>
+    				{!! Form::label('nama', 'Jenis Kelamin') !!}
+    				{!! Form::input('nama', 'null', null, ['class' => 'form-control']) !!}
+    			</div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Nomor Handphone</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Nomor Handphone">
-          </div>
+    				{!! Form::label('nama', 'Nomor HP') !!}
+    				{!! Form::input('nama', 'null', null, ['class' => 'form-control']) !!}
+    			</div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Subjek Pesan</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Subjek Pesan">
-          </div>
+    				{!! Form::label('nama', 'Asal SMA') !!}
+    				{!! Form::input('nama', 'null', null, ['class' => 'form-control']) !!}
+    			</div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Pesan</label>
-            <textarea class="form-control" rows="5"></textarea>
-          </div>
+    				{!! Form::label('nama', 'Alamat email') !!}
+    				{!! Form::input('nama', 'null', null, ['class' => 'form-control']) !!}
+    			</div>
+          <div class="form-group">
+    				{!! Form::label('excerpt', 'Alamat Lengkap') !!}
+    				{!! Form::input('excerpt', null, null, ['class' => 'form-control', 'style' => 'width: 100%; height: 60px;border: 1px solid #dddddd;']) !!}
+    			</div>
+          <h3>Lampiran</h3>
+          <div class="form-group">
+    				{!! Form::label('tag_list', 'Keterangan Penghasilan Ortu') !!}
+    				{!! Form::file('image', ['class' => 'form-control']) !!}
+    			</div>
+          <div class="form-group">
+    				{!! Form::label('tag_list', 'Pernyataan Ortu') !!}
+    				{!! Form::file('image', ['class' => 'form-control']) !!}
+    			</div>
+          <div class="form-group">
+    				{!! Form::label('tag_list', 'Rekomendasi Dosen') !!}
+    				{!! Form::file('image', ['class' => 'form-control']) !!}
+    			</div>
+          <div class="form-group">
+    				{!! Form::label('tag_list', 'Rekomendasi Teman') !!}
+    				{!! Form::file('image', ['class' => 'form-control']) !!}
+    			</div>
+
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
