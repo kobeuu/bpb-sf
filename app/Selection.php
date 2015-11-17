@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Registrar extends Model {
+class Selection extends Model {
 
 	//
 

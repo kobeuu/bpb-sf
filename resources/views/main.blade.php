@@ -22,11 +22,11 @@
     @include('pages.footer')
 
     <!-- search modal -->
-    @include('partials.search')
+    <!-- @include('partials.search') -->
 
     <script src="js/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="js/search.js"></script>
+    <!-- <script src="js/search.js"></script> -->
 
   </body>
 </html>

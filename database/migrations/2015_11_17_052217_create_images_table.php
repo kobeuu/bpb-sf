@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddExcerptToArticlesTable extends Migration {
+class CreateImagesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,10 @@ class AddExcerptToArticlesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('articles', function(Blueprint $table)
+		Schema::create('images', function(Blueprint $table)
 		{
-			//
-			$table->text('excerpt')->nullable();
+			$table->increments('id');
+			$table->timestamps();
 		});
 	}
 
@@ -26,10 +26,7 @@ class AddExcerptToArticlesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('articles', function(Blueprint $table)
-		{
-			$table->dropColumn('excerpt');
-		});
+		Schema::drop('images');
 	}
 
 }

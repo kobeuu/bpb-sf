@@ -66,9 +66,9 @@ class ArticlesController extends Controller
 		$this->createArticle($request);
 
 		//flash()->success('Your article has been created!');
-		flash()->overlay('Your article has been successfully created!', 'Good Job');
+		flash()->overlay('Your article has been successfully created!');
 
-		return redirect('articles/list');
+		return redirect('articles/admin');
 	}
 
 	/**
@@ -150,18 +150,6 @@ class ArticlesController extends Controller
 		return $article;
 	}
 
-	/**
-   * Remove the specified resource from storage.
-   *
-   * @param $id
-   * @return Response
-   */
-
-  public function delete(Article $article)
-  {
-      return view('article.delete', compact('article'));
-  }
-
   /**
    * Remove the specified resource from storage.
    *
@@ -170,14 +158,9 @@ class ArticlesController extends Controller
    */
   public function destroy(Article $article)
   {
-      $article->delete();
+    $article->delete();
+
+		return redirect('articles/admin');
   }
-
-	public function listArticles(Article $article)
-	{
-		$articles = Article::latest('published_at')->get();
-
-		return view('articles.list', compact('articles'));
-	}
 
 }

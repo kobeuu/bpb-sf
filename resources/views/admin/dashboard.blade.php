@@ -8,7 +8,7 @@
   <!-- small box -->
   <div class="small-box bg-aqua">
     <div class="inner">
-      <h3>150</h3>
+      <h3>{{$articles->count()}}</h3>
       <p>Total Artikel</p>
     </div>
     <div class="icon">
@@ -34,7 +34,7 @@
   <!-- small box -->
   <div class="small-box bg-yellow">
     <div class="inner">
-      <h3>894</h3>
+      <h3>{{$registrants->count()}}</h3>
       <p>Total Pendaftar</p>
     </div>
     <div class="icon">

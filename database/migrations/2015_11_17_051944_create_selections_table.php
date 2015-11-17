@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddImageToArticlesTable extends Migration {
+class CreateSelectionsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,10 @@ class AddImageToArticlesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('articles', function(Blueprint $table)
+		Schema::create('selections', function(Blueprint $table)
 		{
-			//
-			$table->string('image')->nullable();
+			$table->increments('id');
+			$table->timestamps();
 		});
 	}
 
@@ -26,10 +26,7 @@ class AddImageToArticlesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('articles', function(Blueprint $table)
-		{
-			$table->dropColumn('image');
-		});
+		Schema::drop('selections');
 	}
 
 }

@@ -20,9 +20,9 @@
       <table class="table table-hover">
         <tr>
           <th>ID</th>
-          <th>Author</th>
-          <th>Title</th>
-          <th>Body</th>
+          <th>Penulis</th>
+          <th>Judul</th>
+          <th>Isi</th>
           <th>Status</th>
           <th>Action</th>
         </tr>
@@ -33,7 +33,12 @@
             <td>{{ $article->title }}</td>
             <td>{{ $article->excerpt }}</td>
             <td><span class="label label-success">Pending</span></td>
-            <td><a href="{{ url('/articles/ $article->id /edit') }}"><span class="label label-success">Edit</span></a> <span class="label label-success">Delete</span></td>
+            <td>
+              <a href="/articles/{{ $article->id }}/edit"><span class="btn btn-xs btn-primary">Edit</span></a>
+              {!! Form::open(['url' => route('articles.destroy', $article->id), 'method' => 'delete']) !!}
+                <button type="submit" class="btn btn-xs btn-danger">Delete</button>
+              {!! Form::close() !!}
+            </td>
           </tr>
         @endforeach
       </table>

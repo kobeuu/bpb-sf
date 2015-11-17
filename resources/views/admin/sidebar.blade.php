@@ -26,7 +26,7 @@
           <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
-          <li><a href="/articles/list"><i class="fa fa-circle-o"></i> Daftar Artikel</a></li>
+          <li><a href="/articles/admin"><i class="fa fa-circle-o"></i> Daftar Artikel</a></li>
           <li><a href="/articles/create"><i class="fa fa-circle-o"></i> Tambah Artikel Baru</a></li>
         </ul>
       </li>
@@ -56,6 +56,17 @@
 
       <li class="treeview">
         <a href="#">
+          <i class="fa fa-user"></i> <span>Rekrutment</span>
+          <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="#"><i class="fa fa-circle-o"></i> Semua Pendaftar <small class="label pull-right bg-green">new</small></a></li>
+          <li><a href="#"><i class="fa fa-circle-o"></i> Pleno Akhir</a></li>
+        </ul>
+      </li>
+
+      <li class="treeview">
+        <a href="#">
           <i class="fa fa-money"></i> <span>Donasi</span>
           <i class="fa fa-angle-left pull-right"></i>
         </a>
@@ -65,12 +76,11 @@
         </ul>
       </li>
 
-      <li class="header">REKRUTMEN PESERTA</li>
-      <li><a href="#"><i class="fa fa-circle-o"></i> <span>Semua Pendaftar</span></a></li>
-      <li><a href="#"><i class="fa fa-circle-o"></i> <span>Seleksi Administrasi</span></a></li>
-      <li><a href="#"><i class="fa fa-circle-o"></i> <span>Tes Tulis dan Psikotes</span></a></li>
-      <li><a href="#"><i class="fa fa-circle-o"></i> <span>Home Visit</span></a></li>
-      <li><a href="#"><i class="fa fa-circle-o"></i> <span>Penentuan Akhir</span></a></li>
+      <li>
+        <a href="/admin/pesan">
+          <i class="fa fa-circle-o"></i> <span>Pesan</span> <small class="label pull-right bg-green">new</small>
+        </a>
+      </li>
 
     </ul>
 </aside>

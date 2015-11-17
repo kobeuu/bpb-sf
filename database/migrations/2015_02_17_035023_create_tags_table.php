@@ -38,8 +38,10 @@ class CreateTagsTable extends Migration {
 	 */
 	public function down()
 	{
+		DB::statement('SET FOREIGN_KEY_CHECKS = 0');
 		Schema::drop('tags');
 		Schema::drop('article_tag');
+		DB::statement('SET FOREIGN_KEY_CHECKS = 1');
 	}
 
 }

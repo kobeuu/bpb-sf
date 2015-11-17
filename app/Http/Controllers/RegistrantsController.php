@@ -4,8 +4,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use App\Registrant;
 
-class RegistrarsController extends Controller {
+class registrantsController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -24,7 +25,7 @@ class RegistrarsController extends Controller {
 	 */
 	public function create()
 	{
-		return view('pages.registration');
+		return view('registration.index');
 	}
 
 	/**
@@ -32,9 +33,25 @@ class RegistrarsController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		//
+		$this->validate($request, [
+			'name' => 'required|min:3',
+			'sex' => 'required|min:3',
+			'contact' => 'required|min:3',
+			'school' => 'required|min:3',
+			'email' => 'required|min:3',
+			'address' => 'required|min:3',
+			'attachment' => 'required|min:3'
+		]);
+
+		Registrant::create($request->all());
+
+		//flash()->success('Your article has been created!');
+		flash()->overlay('Your article has been successfully created!');
+
+		return redirect('/pendaftaran');
+
 	}
 
 	/**
@@ -79,6 +96,18 @@ class RegistrarsController extends Controller {
 	public function destroy($id)
 	{
 		//
+	}
+
+	/**
+	 * Save a new article
+	 *
+	 * @param  ArticleRequest $request
+	 * @return mixed
+	 */
+	private function createRegistrant(ArticleRequest $request)
+	{
+
+		return $article;
 	}
 
 }

@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use App\Tag;
+use App\User;
 
 class DatabaseSeeder extends Seeder {
 
@@ -14,6 +16,23 @@ class DatabaseSeeder extends Seeder {
 	{
 		Model::unguard();
 
+		Tag::create([
+				'name' => 'Kebangsaan',
+		]);
+
+		Tag::create([
+				'name' => 'Sosial',
+		]);
+
+		Tag::create([
+				'name' => 'Akhlak',
+		]);
+
+		User::create([
+			'name' => 'Dede Iskandar',
+			'email' => 'kobeuu@gmail.com',
+			'password' => bcrypt('rendahhati'),
+		]);
 		// $this->call('UserTableSeeder');
 	}
 

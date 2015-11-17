@@ -10,7 +10,7 @@
 			</div>
 			<div class="form-group">
 				{!! Form::label('excerpt', 'Excerpt (maks : 30 word) :') !!}
-				{!! Form::input('excerpt', null, ['class' => 'form-control', 'style' => 'width: 100%; height: 60px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;']) !!}
+				{!! Form::textarea('excerpt', null, ['class' => 'form-control', 'style' => 'width: 100%; height: 60px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;']) !!}
 			</div>
 		</div>
 	</div>

@@ -1,11 +1,20 @@
 <?php namespace App\Http\Controllers;
 
+use App\Message;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class TestController extends Controller {
+class MessagesController extends Controller {
+
+	/**
+	 * Create a new articles controller instance.
+	 */
+	public function __construct()
+	{
+		$this->middleware('auth', ['except' => ['index', 'create', 'store']]);
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -24,7 +33,7 @@ class TestController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		return view('pages.kontak');
 	}
 
 	/**
@@ -32,9 +41,21 @@ class TestController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		//
+		$this->validate($request, [
+			'name' => 'required|min:3',
+			'hp' => 'required|min:6',
+			'email' => 'required',
+			'subject' => 'required',
+			'message' => 'required|max:255',
+		]);
+
+		flash()->overlay('Your article has been successfully created!');
+
+		Message::create($request->all());
+
+		return redirect ('/kontak');
 	}
 
 	/**

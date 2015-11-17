@@ -18,6 +18,8 @@ class CreateArticlesTable extends Migration {
 			$table->integer('user_id')->unsigned();
 			$table->string('title');
 			$table->text('body');
+			$table->text('excerpt')->nullable();
+			$table->string('image')->nullable();
 			$table->timestamps();
 			$table->timestamp('published_at');
 

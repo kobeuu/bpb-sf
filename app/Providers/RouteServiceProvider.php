@@ -35,6 +35,8 @@ class RouteServiceProvider extends ServiceProvider {
 		{
 			return \App\Tag::where('name', $name)->firstOrFail();
 		});
+
+		
 	}
 
 	/**
