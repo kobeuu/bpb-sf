@@ -26,7 +26,7 @@ class ArticlesController extends Controller
 	 */
 	public function index()
 	{
-		$articles = Article::latest('published_at')->published()->get();
+		$articles = Article::latest('published_at')->published()->paginate(3);
 
 		return view('articles.index', compact('articles'));
 	}
@@ -93,16 +93,8 @@ class ArticlesController extends Controller
 	 */
 	public function update(Article $article, ArticleRequest $request)
 	{
-		if($request->hasFile('image'))
-		{
-				$file = $request->file('image');
-				$image = $file->getClientOriginalName();
 
-				$destinationPath = public_path('/uploads/images/');
-				$request->file('image')->move($destinationPath, $image);
-		}
-
-		$article->update($request->all());
+		$article->update($request->except('image'));
 
 		$this->syncTags($article, $request->input('tag_list'));
 

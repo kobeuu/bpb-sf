@@ -43,6 +43,9 @@
         @endforeach
       </table>
     </div><!-- /.box-body -->
+    <div class="box-footer">
+      {!! $articles->render() !!}
+    </div>
   </div><!-- /.box -->
 </div>
 @endsection

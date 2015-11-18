@@ -99,7 +99,7 @@
         <h2 class="heading">Tulisan Mapinsa</h2>
       </div>
       <div class="col-sm-6 col-md-6 text-right btn-semua">
-        <span class="btn-semua">Lihat Semua Berita Aktivitas</span>
+        <span class="btn-semua"><a href="/articles" >Lihat Semua Berita Aktivitas</a></span>
       </div>
     </div>
     <div class="row">

@@ -14,12 +14,16 @@
 					<img src="/uploads/images/{{ $article->image }}"  height="500" width="720" alt="">
 				</div>
 				<h2 class="heading-post">{{ $article->title }}</h2>
+
 				@unless ($article->tags->isEmpty())
 					<div class="tags">
 						<ul>
+							<span class="meta-post">Published on 03 Agustus 2015 | Writen by <a href="#">{!! $article->user_id !!}</a>
+							| Tagged under
 							@foreach ($article->tags as $tag)
 								<li> {{ $tag->name }} </li>
 							@endforeach
+							</span>
 						</ul>
 					</div>
 				@endunless
@@ -29,11 +33,11 @@
 				<div class="author">
 					<div class="media-left">
 						<a href="#">
-							<img class="media-object" src="/img/avatar.svg" alt="avatar">
+							<img class="media-object" src="/img/dian-p.png" width="120px" alt="avatar">
 						</a>
 					</div>
 					<div class="media-body">
-						<h4 class="media-heading">Muhammad John Doe</h4>
+						<h4 class="media-heading">Dian Purnama</h4>
 						<p>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam tecto beatae vitae dicta eiusmod tempor incididunt ut labore et dolore magn sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit incididunt ut labore et dolore magna aliqua.</p>
 					</div>
 				</div>
@@ -41,8 +45,7 @@
 			</div>
 
 			<div class="col-md-4">
-				<h4>Sidebar</h4>
-			</div>
+				@include('partials.sidebar')
 		</div>
 
 	</div>

@@ -6,7 +6,7 @@
         <h1 class="judul-halaman">@yield('judul-halaman')</h1>
       </div>
       <div class="col-xs-6 page-icon">
-        <img src="img/profil-icon.png" alt="profil icon"/>
+        <img src="{{ url('img/profil-icon.png') }}" alt="profil icon"/>
       </div>
     </div>
   </div>

@@ -9,7 +9,7 @@ class Message extends Model {
 		'hp',
 		'email',
 		'subject',
-		'message'
+		'message',
 	];
 
 }

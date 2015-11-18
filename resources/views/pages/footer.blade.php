@@ -37,6 +37,11 @@
           Jalan Manteron No. 18 Bandung<br>
           Telp. 022.250 1987
         </address>
+        <address>
+          <strong>Asrama III BPB</strong><br>
+          Jalan Gagak No. 03 Bandung<br>
+          Telp. 022.250 1987
+        </address>
       </div>
 
       <div class="col-md-4">
@@ -53,11 +58,11 @@
           <span class="social-sprite gplus">&nbsp;</span>
           <span class="social-sprite youtube">&nbsp;</span>
         </address>
-        
+
         <address>
           <a class="footer-link" href="http://www.sinergifoundation.org">www.<span class="heading"><strong>sinergifoundation</strong></span>.org</a>
         </address>
-        
+
       </div>
     </div>
   </div>

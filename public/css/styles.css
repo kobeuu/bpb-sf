@@ -21,7 +21,8 @@ address {
 }
 
 .tags ul {
-	/*list-style-type: none;*/
+	list-style-type: none;
+	-webkit-padding-start: 0px;
 }
 
 .tags ul li{

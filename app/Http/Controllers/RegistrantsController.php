@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Registrant;
+use Illuminate\Support\Facades\Mail;
+use \Input as Input;
 
 class registrantsController extends Controller {
 
@@ -36,15 +38,55 @@ class registrantsController extends Controller {
 	public function store(Request $request)
 	{
 		$this->validate($request, [
-			'name' => 'required|min:3',
-			'sex' => 'required|min:3',
-			'contact' => 'required|min:3',
-			'school' => 'required|min:3',
-			'email' => 'required|min:3',
-			'address' => 'required|min:3',
-			'attachment' => 'required|min:3'
+			'name' => 'required',
+			'jk' => 'required',
+			'hp' => 'required',
+			'sma' => 'required',
+			'lulus' => 'required',
+			'email' => 'required',
+			'kampung' => 'required',
+			'desa' => 'required',
+			'kecamatan' => 'required',
+			'kota' => 'required',
+			'provinsi' => 'required',
+			'universitas' => 'required',
+			'fakultas' => 'required',
+			'jurusan' => 'required',
+			'anak' => 'required',
+			'saudara' => 'required',
+			'penghasilan' => 'required',
+			'tanggungan' => 'required',
+			'tentang_keluarga' => 'required',
+			'tentang_sahabat' => 'required',
+			'tentang_ekonomi' => 'required',
+			'sekolah' => 'required',
+			'luar_sekolah' => 'required',
+			'organisasi' => 'required',
+			'harapan' => 'required',
+			'potensi' => 'required',
+			'mimpi' => 'required',
+			'moto' => 'required',
+			'foto' => 'required',
 		]);
 
+		if(Input::hasFile('foto')){
+			$file = Input::file('foto');
+	    $image_name = time()."-".$file->getClientOriginalName();
+	    $file->move('uploads/registrants/', $image_name);
+	    Image::make(sprintf('uploads/registrants/%s', $image_name))->resize(300)->save();
+		}
+
+
+
+		Mail::send('emails.konfirmasi',
+		['name' => $request->name, 'address' => $request->address ],
+		function($message)
+		{
+			$message->to('kobeuu@gmail.com', 'Dede Iskandar')
+							->subject('welcome');
+		});
+
+		$article = new Registrant($request->all());
 		Registrant::create($request->all());
 
 		//flash()->success('Your article has been created!');

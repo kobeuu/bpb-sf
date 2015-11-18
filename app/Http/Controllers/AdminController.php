@@ -26,7 +26,7 @@ class AdminController extends Controller {
 
 	public function Articles()
 	{
-		$articles = Article::latest('published_at')->get();
+		$articles = Article::latest('published_at')->paginate(3);
 
 		return view('admin.articles', compact('articles'));
 	}
