@@ -1,5 +1,7 @@
 <?php namespace App\Providers;
 
+use App\Image;
+
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
@@ -36,7 +38,9 @@ class RouteServiceProvider extends ServiceProvider {
 			return \App\Tag::where('name', $name)->firstOrFail();
 		});
 
-		
+		$router->model('image', Image::class);
+
+
 	}
 
 	/**

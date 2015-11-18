@@ -14,20 +14,7 @@
     <div class="icon">
       <i class="ion ion-document-text"></i>
     </div>
-    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-  </div>
-</div><!-- ./col -->
-<div class="col-lg-3 col-xs-6">
-  <!-- small box -->
-  <div class="small-box bg-green">
-    <div class="inner">
-      <h3>156</h3>
-      <p>Total Donatur</p>
-    </div>
-    <div class="icon">
-      <i class="ion ion-card"></i>
-    </div>
-    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+    <a href="/articles/admin" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
   </div>
 </div><!-- ./col -->
 <div class="col-lg-3 col-xs-6">
@@ -40,20 +27,33 @@
     <div class="icon">
       <i class="ion ion-person-add"></i>
     </div>
-    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+    <a href="/users/admin" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
   </div>
 </div><!-- ./col -->
 <div class="col-lg-3 col-xs-6">
   <!-- small box -->
   <div class="small-box bg-red">
     <div class="inner">
-      <h3>65</h3>
-      <p>Unique Visitors</p>
+      <h3>{{ $messages->count() }}</h3>
+      <p>Pesan Masuk</p>
     </div>
     <div class="icon">
-      <i class="ion ion-pie-graph"></i>
+      <i class="ion ion-email"></i>
     </div>
-    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+    <a href="/messages/admin" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+  </div>
+</div><!-- ./col -->
+<div class="col-lg-3 col-xs-6">
+  <!-- small box -->
+  <div class="small-box bg-green">
+    <div class="inner">
+      <h3>156</h3>
+      <p>Total Donatur</p>
+    </div>
+    <div class="icon">
+      <i class="ion ion-card"></i>
+    </div>
+    <a href="/donors/admin" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
   </div>
 </div><!-- ./col -->
 @endsection

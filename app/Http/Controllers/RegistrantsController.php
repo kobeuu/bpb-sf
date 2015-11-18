@@ -69,14 +69,16 @@ class registrantsController extends Controller {
 			'foto' => 'required',
 		]);
 
-		if(Input::hasFile('foto')){
-			$file = Input::file('foto');
-	    $image_name = time()."-".$file->getClientOriginalName();
-	    $file->move('uploads/registrants/', $image_name);
-	    Image::make(sprintf('uploads/registrants/%s', $image_name))->resize(300)->save();
+		Registrant::create($request->except('foto'));
+
+		if ($request->hasFile('foto'))
+		{
+			$request->file('foto')->move(public_path('uploads/registrants'), $request->file('foto')->getClientOriginalName());
+
+		 	$registrant->foto = $request->file('foto')->getClientOriginalName();
+
+		 	$registrant->save();
 		}
-
-
 
 		Mail::send('emails.konfirmasi',
 		['name' => $request->name, 'address' => $request->address ],
@@ -85,9 +87,6 @@ class registrantsController extends Controller {
 			$message->to('kobeuu@gmail.com', 'Dede Iskandar')
 							->subject('welcome');
 		});
-
-		$article = new Registrant($request->all());
-		Registrant::create($request->all());
 
 		//flash()->success('Your article has been created!');
 		flash()->overlay('Your article has been successfully created!');

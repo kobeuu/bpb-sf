@@ -2,7 +2,9 @@
 
 use App\Article;
 use App\Message;
+use App\Image;
 use App\Registrant;
+use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -21,21 +23,44 @@ class AdminController extends Controller {
 	public function index(){
 		$articles = Article::all();
 		$registrants = Registrant::all();
-		return view('admin.dashboard', compact('articles', 'registrants'));
+		$users = User::all();
+		$messages = Message::all();
+		return view('admin.dashboard', compact('articles', 'registrants', 'users', 'messages'));
 	}
 
-	public function Articles()
+	public function articles()
 	{
 		$articles = Article::latest('published_at')->paginate(3);
 
 		return view('admin.articles', compact('articles'));
 	}
 
-	public function Messages()
+	public function users()
 	{
-		$articles = Message::latest()->get();
+		$users = User::all();
 
-		return view('articles.lists', compact('articles'));
+		return view('admin.users', compact('users'));
+	}
+
+	public function messages()
+	{
+		$messages = Message::latest()->get();
+
+		return view('admin.messages', compact('messages'));
+	}
+
+	public function images()
+	{
+		$images = Image::latest()->get();
+
+		return view('admin.images', compact('images'));
+	}
+
+	public function registrants()
+	{
+		$registrants = Registrant::latest()->get();
+
+		return view('admin.registrants', compact('registrants'));
 	}
 
 }
