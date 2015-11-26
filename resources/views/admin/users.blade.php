@@ -1,12 +1,12 @@
 @extends('admin')
 
-@section('page_title', 'Pendaftaran')
+@section('page_title', 'Pengguna')
 
 @section('content')
 <div class="col-md-12">
   <div class="box">
     <div class="box-header">
-      <h3 class="box-title">Daftar Semua Pendaftar</h3>
+      <h3 class="box-title">Daftar Semua Pengguna</h3>
       <div class="box-tools">
         <div class="input-group" style="width: 150px;">
           <input type="text" name="table_search" class="form-control input-sm pull-right" placeholder="Search">

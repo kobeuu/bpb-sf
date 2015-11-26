@@ -8,7 +8,7 @@
     <div class="box-header">
       <h3 class="box-title">Semua Pendaftar</h3>
       <div class="box-tools">
-        <button type="submit" class="btn btn-xs btn-primary">Export to Excel</button>
+        <a href="/registrants/xlsx" class="btn btn-xs btn-primary">Export to Excel</a>
       </div>
     </div><!-- /.box-header -->
     <div class="box-body table-responsive no-padding">
@@ -29,7 +29,7 @@
             <td>{{ $registrant->kota }}</td>
             <td>{{ $registrant->universitas }}</td>
             <td>
-              {!! Form::open(['url' => route('articles.destroy', $registrant->id), 'method' => 'delete']) !!}
+              {!! Form::open(['url' => route('registrants.destroy', $registrant->id), 'method' => 'delete']) !!}
                 <button type="submit" class="btn btn-xs btn-danger">Delete</button>
               {!! Form::close() !!}
             </td>

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Registrant;
 use Illuminate\Support\Facades\Mail;
-use \Input as Input;
+use Excel;
 
 class registrantsController extends Controller {
 
@@ -89,66 +89,39 @@ class registrantsController extends Controller {
 		});
 
 		//flash()->success('Your article has been created!');
-		flash()->overlay('Your article has been successfully created!');
+		flash()->success('Pendaftaran anda telah kami terima!');
 
 		return redirect('/pendaftaran');
 
 	}
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
+	public function exportToExcel()
 	{
-		//
-	}
+		Excel::create('daftar peserta', function ($excel)
+		{
+			$excel->setTitle('Our new awesome title');
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
+			// Our first sheet
+    $excel->sheet('First sheet', function($sheet) {
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
+			$titles = array(
+				'No. Registrasi',
+				'Nama Lengkap'
+			);
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
+			$registrants = Registrant::all();
 
-	/**
-	 * Save a new article
-	 *
-	 * @param  ArticleRequest $request
-	 * @return mixed
-	 */
-	private function createRegistrant(ArticleRequest $request)
-	{
+			$sheet->fromModel($registrants, null, 'A1', true);
 
-		return $article;
+    });
+
+    // Our second sheet
+    $excel->sheet('Second sheet', function($sheet) {
+
+    });
+
+
+		})->download('xlsx');
 	}
 
 }

@@ -51,7 +51,7 @@ class MessagesController extends Controller {
 			'message' => 'required|max:255',
 		]);
 
-		flash()->overlay('Your article has been successfully created!');
+		flash()->success('Pesan anda telah kami terima!');
 
 		Message::create($request->all());
 

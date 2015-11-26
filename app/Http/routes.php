@@ -12,6 +12,9 @@
 */
 
 Route::get('/', 'PagesController@index');
+
+Route::get('login', 'AdminController@login');
+
 Route::get('profil', 'PagesController@profile');
 Route::get('peserta', 'PagesController@peserta');
 Route::get('prestasi', 'PagesController@prestasi');
@@ -21,6 +24,7 @@ Route::get('donasi', 'PagesController@donasi');
 
 Route::get('dashboard', 'AdminController@index');
 
+Route::get('registrants/xlsx', 'RegistrantsController@exportToExcel');
 Route::get('registrants/admin', 'AdminController@registrants');
 Route::get('pendaftaran', 'RegistrantsController@create');
 Route::resource('registrants', 'RegistrantsController');

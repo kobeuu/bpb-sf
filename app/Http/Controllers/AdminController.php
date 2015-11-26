@@ -28,6 +28,11 @@ class AdminController extends Controller {
 		return view('admin.dashboard', compact('articles', 'registrants', 'users', 'messages'));
 	}
 
+	public function login()
+	{
+		return view('auth.logiTemp');
+	}
+
 	public function articles()
 	{
 		$articles = Article::latest('published_at')->paginate(3);

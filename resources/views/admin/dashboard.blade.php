@@ -27,7 +27,7 @@
     <div class="icon">
       <i class="ion ion-person-add"></i>
     </div>
-    <a href="/users/admin" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+    <a href="/registrants/admin" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
   </div>
 </div><!-- ./col -->
 <div class="col-lg-3 col-xs-6">
@@ -43,8 +43,7 @@
     <a href="/messages/admin" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
   </div>
 </div><!-- ./col -->
-<div class="col-lg-3 col-xs-6">
-  <!-- small box -->
+<!-- <div class="col-lg-3 col-xs-6">
   <div class="small-box bg-green">
     <div class="inner">
       <h3>156</h3>
@@ -55,5 +54,5 @@
     </div>
     <a href="/donors/admin" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
   </div>
-</div><!-- ./col -->
+</div> -->
 @endsection

@@ -10,6 +10,8 @@
     <div class="row">
 
       <div class="col-md-8">
+
+        @include('partials.flash')
         <!-- Display Validation Errors -->
         @include('errors.list')
 

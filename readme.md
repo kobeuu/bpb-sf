@@ -1,4 +1,7 @@
-## Steps for application first running
+## Overview
+
+
+## Installation
 
 - Run command
 ```
@@ -15,11 +18,4 @@ touch storage/database.sqlite
 ```
 - then run migrations
 ```
-php artisan migrate
-```
-- then add some tags, for example:
-```
-php artisan tinker
-$tags = ['personal', 'work', 'food', 'coding'];
-foreach($tags as $tag){\App\Tag::create(['name' => $tag]);}
-```
+php artisan migrate --seed

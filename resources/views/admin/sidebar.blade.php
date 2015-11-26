@@ -62,7 +62,7 @@
         </a>
       </li>
 
-      <li class="treeview">
+      <!-- <li class="treeview">
         <a href="#">
           <i class="fa fa-money"></i> <span>Donasi</span>
           <i class="fa fa-angle-left pull-right"></i>
@@ -71,7 +71,7 @@
           <li><a href="/donations/admin"><i class="fa fa-circle-o"></i> Daftar Donasi </a></li>
           <li><a href="/donors/admin"><i class="fa fa-circle-o"></i> Semua Donatur</a></li>
         </ul>
-      </li>
+      </li> -->
 
     </ul>
 </aside>
