@@ -4,11 +4,13 @@
 
 @section('content')
 <div class="col-md-9">
+  @include('partials.flash')
+
   <div class="box">
     <div class="box-body table-responsive no-padding">
       <table class="table table-hover">
         <tr>
-          <th>ID</th>
+          <th>#</th>
           <th>Title</th>
           <th>Caption</th>
 					<th>Action</th>
@@ -45,7 +47,7 @@
 				</div>
 				<div class="form-group">
 			      {!! Form::label('File') !!}
-			      {!! Form::file('file', null, ['class' => 'form-control', 'placeholder' => 'Nama Lengkap']) !!}
+			      {!! Form::file('file', null, ['class' => 'form-control']) !!}
 			  </div>
 
 		    <div class="form-group">

@@ -23,7 +23,7 @@ class MessagesController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		return view('pages.kontak');
 	}
 
 	/**
@@ -33,7 +33,7 @@ class MessagesController extends Controller {
 	 */
 	public function create()
 	{
-		return view('pages.kontak');
+		return view('messages.create');
 	}
 
 	/**

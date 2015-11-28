@@ -24,7 +24,7 @@
           <!-- <li><a href="/prestasi">Prestasi</a></li> -->
           <li><a href="/gallery">Gallery</a></li>
           <li><a href="/kontak">Kontak</a></li>
-          <!-- <li><a href="/donasi">Donasi</a></li> -->
+          <li><a href="/donasi">Donasi</a></li>
           <li><a href="/pendaftaran">Pendaftaran</a></li>
           <li class="hidden-sm hidden-xs"><a href="#search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a></li>
         </ul>

@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('judul-halaman', 'Pendaftaran')
+@section('judul-halaman', 'Pendaftaran BPB 2016')
 
 @section('content')
 
@@ -23,42 +23,42 @@
           <div class="form-group">
               {!! Form::label('Nama Lengkap', null, ['class' => 'col-sm-3 control-label']) !!}
               <div class="col-sm-9">
-              {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nama Lengkap']) !!}
+              {!! Form::text('name', null, ['class' => 'form-control']) !!}
             </div>
           </div>
 
           <div class="form-group">
               {!! Form::label('Jenis Kelamin', null, ['class' => 'col-sm-3 control-label']) !!}
               <div class="col-sm-9">
-              {!! Form::text('jk', null, ['class' => 'form-control', 'placeholder' => 'Jenis Kelamin']) !!}
+              {!! Form::text('jk', null, ['class' => 'form-control']) !!}
             </div>
           </div>
 
           <div class="form-group">
               {!! Form::label('Nomor HP', null, ['class' => 'col-sm-3 control-label']) !!}
               <div class="col-sm-9">
-                {!! Form::text('hp', null, ['class' => 'form-control', 'placeholder' => 'Nomor HP']) !!}
+                {!! Form::text('hp', null, ['class' => 'form-control']) !!}
               </div>
           </div>
 
           <div class="form-group">
               {!! Form::label('Asal SMA', null, ['class' => 'col-sm-3 control-label']) !!}
               <div class="col-sm-9">
-                {!! Form::text('sma', null, ['class' => 'form-control', 'placeholder' => 'Asal SMA']) !!}
+                {!! Form::text('sma', null, ['class' => 'form-control']) !!}
               </div>
           </div>
 
           <div class="form-group">
               {!! Form::label('Tahun Lulus', null, ['class' => 'col-sm-3 control-label']) !!}
               <div class="col-sm-9">
-                {!! Form::text('lulus', null, ['class' => 'form-control', 'placeholder' => 'Tahun Lulus']) !!}
+                {!! Form::text('lulus', null, ['class' => 'form-control']) !!}
               </div>
           </div>
 
           <div class="form-group">
               {!! Form::label('Alamat EMail', null, ['class' => 'col-sm-3 control-label']) !!}
               <div class="col-sm-9">
-                {!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'Alamat email']) !!}
+                {!! Form::text('email', null, ['class' => 'form-control']) !!}
               </div>
           </div>
 
@@ -69,31 +69,31 @@
           <div class="form-group">
               {!! Form::label('Nama Kampung / Jalan', null, ['class' => 'col-sm-3 control-label']) !!}
               <div class="col-sm-9">
-              {!! Form::text('kampung', null, ['class' => 'form-control', 'placeholder' => 'Kampung / Jalan']) !!}
+              {!! Form::text('kampung', null, ['class' => 'form-control']) !!}
             </div>
           </div>
           <div class="form-group">
               {!! Form::label('Desa / Kelurahan', null, ['class' => 'col-sm-3 control-label']) !!}
               <div class="col-sm-9">
-              {!! Form::text('desa', null, ['class' => 'form-control', 'placeholder' => 'Desa / Kelurahan']) !!}
+              {!! Form::text('desa', null, ['class' => 'form-control',]) !!}
             </div>
           </div>
           <div class="form-group">
               {!! Form::label('Kecamatan', null, ['class' => 'col-sm-3 control-label']) !!}
               <div class="col-sm-9">
-              {!! Form::text('kecamatan', null, ['class' => 'form-control', 'placeholder' => 'Kecamatan']) !!}
+              {!! Form::text('kecamatan', null, ['class' => 'form-control']) !!}
             </div>
           </div>
           <div class="form-group">
               {!! Form::label('Kota / Kabupaten', null, ['class' => 'col-sm-3 control-label']) !!}
               <div class="col-sm-9">
-              {!! Form::text('kota', null, ['class' => 'form-control', 'placeholder' => 'Kota / Kabupaten']) !!}
+              {!! Form::text('kota', null, ['class' => 'form-control']) !!}
             </div>
           </div>
           <div class="form-group">
               {!! Form::label('Provinsi', null, ['class' => 'col-sm-3 control-label']) !!}
               <div class="col-sm-9">
-              {!! Form::text('provinsi', null, ['class' => 'form-control', 'placeholder' => 'provinsi']) !!}
+              {!! Form::text('provinsi', null, ['class' => 'form-control']) !!}
             </div>
           </div>
 
@@ -103,19 +103,19 @@
           <div class="form-group">
               {!! Form::label('Universitas / PTN', null, ['class' => 'col-sm-3 control-label']) !!}
               <div class="col-sm-9">
-              {!! Form::text('universitas', null, ['class' => 'form-control', 'placeholder' => 'Universitas']) !!}
+              {!! Form::text('universitas', null, ['class' => 'form-control']) !!}
             </div>
           </div>
           <div class="form-group">
               {!! Form::label('Fakultas', null, ['class' => 'col-sm-3 control-label']) !!}
               <div class="col-sm-9">
-              {!! Form::text('fakultas', null, ['class' => 'form-control', 'placeholder' => 'Fakultas']) !!}
+              {!! Form::text('fakultas', null, ['class' => 'form-control']) !!}
             </div>
           </div>
           <div class="form-group">
               {!! Form::label('Jurusan', null, ['class' => 'col-sm-3 control-label']) !!}
               <div class="col-sm-9">
-              {!! Form::text('jurusan', null, ['class' => 'form-control', 'placeholder' => 'Jurusan']) !!}
+              {!! Form::text('jurusan', null, ['class' => 'form-control']) !!}
             </div>
           </div>
 
@@ -125,13 +125,13 @@
           <div class="form-group">
               {!! Form::label('Anak Ke', null, ['class' => 'col-sm-3 control-label']) !!}
               <div class="col-sm-9">
-              {!! Form::text('anak', null, ['class' => 'form-control', 'placeholder' => 'Anak Ke']) !!}
+              {!! Form::text('anak', null, ['class' => 'form-control']) !!}
             </div>
           </div>
           <div class="form-group">
               {!! Form::label('Jumlah Saudara', null, ['class' => 'col-sm-3 control-label']) !!}
               <div class="col-sm-9">
-              {!! Form::text('saudara', null, ['class' => 'form-control', 'placeholder' => 'Jumlah Saudara']) !!}
+              {!! Form::text('saudara', null, ['class' => 'form-control']) !!}
             </div>
           </div>
           <div class="form-group">
@@ -149,7 +149,7 @@
           <div class="form-group">
               {!! Form::label('Jumlah Tanggungan', null, ['class' => 'col-sm-3 control-label']) !!}
               <div class="col-sm-9">
-              {!! Form::text('tanggungan', null, ['class' => 'form-control', 'placeholder' => 'Jumlah Tanggungan Keluarga']) !!}
+              {!! Form::text('tanggungan', null, ['class' => 'form-control']) !!}
             </div>
           </div>
 

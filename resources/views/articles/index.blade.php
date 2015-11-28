@@ -27,8 +27,13 @@
     					</div>
               <div class="media">
                 <div class="pull-left">
-                  <img class="media-object" src="{{ url('uploads/images', $article->image) }}" height="140" width="220" alt="...">
+                  @if (count($article->image) > 0)
+                    <img class="media-object" src="{{ url('uploads/images', $article->image) }}" height="140" width="220" alt="...">
+                  @else
+                    <img class="media-object" src="{{ url('img/thumb4.svg') }}" height="140" width="220" alt="...">
+                  @endif
                 </div>
+
                 <div class="media-body">
                   {!! $article->excerpt !!}
                   <p class="btn-selengkapnya"><a href="{{ url('/articles', $article->id) }}" role="button">Selengkapnya</a></p>

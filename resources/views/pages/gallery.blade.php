@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('judul-halaman', 'Gallery')
+@section('judul-halaman', 'Gallery Aktivitas')
 
 @section('content')
 

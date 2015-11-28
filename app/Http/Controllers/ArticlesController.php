@@ -65,8 +65,7 @@ class ArticlesController extends Controller
 	{
 		$this->createArticle($request);
 
-		//flash()->success('Your article has been created!');
-		flash()->overlay('Your article has been successfully created!');
+		flash()->success('Your article has been successfully created!');
 
 		return redirect('articles/admin');
 	}
@@ -96,9 +95,24 @@ class ArticlesController extends Controller
 
 		$article->update($request->except('image'));
 
+		if($request->hasFile('image'))
+    {
+        $file = $request->file('image');
+        $filename = $file->getClientOriginalName();
+        $extension = $file ->getClientOriginalExtension();
+        $image = sha1($filename . time()) . '.' . $extension;
+
+				$destinationPath = public_path('/uploads/images/');
+        $request->file('image')->move($destinationPath, $image);
+				$article -> image = $image;
+				$article -> save();
+    }
+
 		$this->syncTags($article, $request->input('tag_list'));
 
-		return redirect('articles');
+		flash()->info('Artikel telah diperbarui!');
+
+		return redirect('articles/admin');
 	}
 
 	/**
@@ -131,11 +145,9 @@ class ArticlesController extends Controller
 
 				$destinationPath = public_path('/uploads/images/');
         $request->file('image')->move($destinationPath, $image);
-
+				$article -> image = $image;
     }
-
-		$article -> image = $image;
-    $article -> save();
+		$article -> save();
 
 		$this->syncTags($article, $request->input('tag_list'));
 
@@ -151,6 +163,9 @@ class ArticlesController extends Controller
   public function destroy(Article $article)
   {
     $article->delete();
+
+		flash()->warning('Artikel telah dihapus!');
+
 
 		return redirect('articles/admin');
   }

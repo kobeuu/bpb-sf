@@ -21,7 +21,7 @@
       <!-- User Account Menu -->
       <li class="dropdown user user-menu">
         <a href="{{ url('/articles/create') }}">
-          <span class="hidden-xs">Write New Article</span>
+          <span class="hidden-xs">Tulis Artikel Baru</span>
         </a>
       </li>
       <li class="dropdown user user-menu">

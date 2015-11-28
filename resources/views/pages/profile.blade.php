@@ -17,7 +17,7 @@
         <p>adalah program beasiswa pendidikan terpadu yang dikelola oleh Sinergi Foundation dengan sistem asrama, bagi mahasiswaberprestasi dari kalangan dhuafa pada perguruan tinggi negeri di Indonesia.</p>
       </div>
       <div class="col-md-6">
-        <img src="img/thumb3.svg" alt="" class="img-responsive">
+        <img src="img/profil-bpb.png" alt="" class="img-responsive">
       </div>
     </div>
     <div class="row">

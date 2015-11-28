@@ -27,16 +27,17 @@
         <hr class="divider">
 
         <address>
-          <strong class="heading-office">Asrama I BPB</strong><br>
-          Jalan Tubagus Ismail III No. 10 Bandung<br>
-          Telp. 022.250 1987
+          <strong class="heading-office">Asrama Bandung</strong><br>
+          <strong>Asrama I </strong>Jalan Tubagus Ismail III No. 10 BandungTelp. 022.250 1987<br>
+          <strong>Asrama II </strong>Jalan Manteron No. 18 Bandung Telp. 022.250 1987<br>
+          <strong>Asrama III </strong>Jalan Gagak No. 03 Bandung Telp. 022.250 1987<br>
         </address>
 
         <address>
-          <strong class="heading-office">Asrama II BPB</strong><br>
-          Jalan Manteron No. 18 Bandung<br>
-          Telp. 022.250 1987
+          <strong class="heading-office">Asrama UI Depok</strong><br>
+          <strong>Asrama I </strong>Jalan Tubagus Ismail III No. 10 BandungTelp. 022.250 1987
         </address>
+
 
         <hr class="divider">
 
@@ -59,22 +60,22 @@
 
         <div class="form-group">
             {!! Form::label('Nama Lengkap') !!}
-            {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nama Lengkap']) !!}
+            {!! Form::text('name', null, ['class' => 'form-control']) !!}
         </div>
 
         <div class="form-group">
             {!! Form::label('Nomor Kontak') !!}
-            {!! Form::text('hp', null, ['class' => 'form-control', 'placeholder' => 'Nomor Kontak']) !!}
+            {!! Form::text('hp', null, ['class' => 'form-control']) !!}
         </div>
 
         <div class="form-group">
             {!! Form::label('Alamat Email') !!}
-            {!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'Alamat Email']) !!}
+            {!! Form::text('email', null, ['class' => 'form-control']) !!}
         </div>
 
         <div class="form-group">
             {!! Form::label('Subject Pesan') !!}
-            {!! Form::text('subject', null, ['class' => 'form-control', 'placeholder' => 'Subject Pesan']) !!}
+            {!! Form::text('subject', null, ['class' => 'form-control']) !!}
         </div>
 
         <div class="form-group">

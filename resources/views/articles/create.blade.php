@@ -1,14 +1,12 @@
 @extends('admin')
 
-@section('page_title', 'Add a New Article')
+@section('page_title', 'Tambah Artikel Baru')
 
 @section('content')
 
-			{!! Form::model($article = new App\Article ,['url' => 'articles', 'files' => true]) !!}
-				@include('articles.form', ['submitButtonText' => 'Add Article'])
-			{!! Form::close() !!}
-
-			@include('errors.list')
+	{!! Form::model($article = new App\Article ,['url' => 'articles', 'files' => true]) !!}
+		@include('articles.form', ['submitButtonText' => 'Add Article'])
+	{!! Form::close() !!}
 
 @endsection
 

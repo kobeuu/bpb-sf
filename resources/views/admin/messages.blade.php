@@ -1,49 +1,74 @@
 @extends('admin')
 
-@section('page_title', 'Daftar Artikel')
+@section('page_title', 'Buku Tamu')
 
 @section('content')
-<div class="col-md-12">
-  <div class="box">
-    <div class="box-header">
-      <h3 class="box-title">Daftar Semua Artikel</h3>
+<div class="col-md-3">
+  <a href="/messages/create" class="btn btn-primary btn-block margin-bottom">Tulisa Pesan</a>
+  <div class="box box-solid">
+    <div class="box-header with-border">
+      <h3 class="box-title">Folders</h3>
       <div class="box-tools">
-        <div class="input-group" style="width: 150px;">
-          <input type="text" name="table_search" class="form-control input-sm pull-right" placeholder="Search">
-          <div class="input-group-btn">
-            <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
-          </div>
-        </div>
+        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
       </div>
-    </div><!-- /.box-header -->
-    <div class="box-body table-responsive no-padding">
-      <table class="table table-hover">
-        <tr>
-          <th>Nama</th>
-          <th>Nomor Kontak</th>
-          <th>ALamat Email</th>
-          <th>Subject Pesan</th>
-          <th>Pesan</th>
-          <th>Action</th>
-        </tr>
-        @foreach ($messages as $message)
-          <tr>
-            <td>{{ $message->name }}</td>
-            <td>{{ $message->hp}}</td>
-            <td>{{ $message->email }}</td>
-            <td>{{ $message->subject }}</td>
-            <td>{{ $message->message }}</td>
-            <td>
-              {!! Form::open(['url' => route('messages.destroy', $message->id), 'method' => 'delete']) !!}
-                <button type="submit" class="btn btn-xs btn-danger">Delete</button>
-              {!! Form::close() !!}
-            </td>
-          </tr>
-        @endforeach
-      </table>
-    </div><!-- /.box-body -->
-    <div class="box-footer">
     </div>
+    <div class="box-body no-padding">
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#"><i class="fa fa-inbox"></i> Inbox <span class="label label-primary pull-right">12</span></a></li>
+        <li><a href="#"><i class="fa fa-envelope-o"></i> Sent</a></li>
+        <li><a href="#"><i class="fa fa-file-text-o"></i> Drafts</a></li>
+        <li><a href="#"><i class="fa fa-filter"></i> Junk <span class="label label-warning pull-right">65</span></a></li>
+        <li><a href="#"><i class="fa fa-trash-o"></i> Trash</a></li>
+      </ul>
+    </div><!-- /.box-body -->
+  </div><!-- /. box -->
+  <div class="box box-solid">
+    <div class="box-header with-border">
+      <h3 class="box-title">Labels</h3>
+      <div class="box-tools">
+        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+      </div>
+    </div>
+    <div class="box-body no-padding">
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="#"><i class="fa fa-circle-o text-red"></i> Important</a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> Promotions</a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-light-blue"></i> Social</a></li>
+      </ul>
+    </div><!-- /.box-body -->
   </div><!-- /.box -->
-</div>
+</div><!-- /.col -->
+<div class="col-md-9">
+  <div class="box box-primary">
+    <div class="box-header with-border">
+      <h3 class="box-title">Inbox</h3>
+      <div class="box-tools pull-right">
+        <div class="has-feedback">
+          <input type="text" class="form-control input-sm" placeholder="Search Mail">
+          <span class="glyphicon glyphicon-search form-control-feedback"></span>
+        </div>
+      </div><!-- /.box-tools -->
+    </div><!-- /.box-header -->
+    <div class="box-body no-padding">
+      <div class="table-responsive mailbox-messages">
+        <table class="table table-hover table-striped">
+          <tbody>
+            @foreach ($messages as $message)
+            <tr>
+              <td>#</td>
+              <td class="mailbox-name"><a href="#">{{ $message->name }}</a></td>
+              <td class="mailbox-name">{{ $message->hp }}</td>
+              <td class="mailbox-subject">{{ $message->subject }}</td>
+              <td class="mailbox-date">5 mins ago</td>
+            </tr>
+            @endforeach
+          </tbody>
+        </table><!-- /.table -->
+      </div><!-- /.mail-box-messages -->
+    </div><!-- /.box-body -->
+    <div class="box-footer no-padding">
+
+    </div>
+  </div><!-- /. box -->
+</div><!-- /.col -->
 @endsection

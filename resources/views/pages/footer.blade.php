@@ -71,6 +71,6 @@
 <!-- copyright -->
 <section id="copyright">
   <div class="container">
-    <h5>Copyright Sinergi Foundation 2014 - Disclaimer | Privacy Policy</h5>
+    <h5>Copyright Sinergi Foundation 2015 - Disclaimer | Privacy Policy</h5>
   </div>
 </section><!-- /#copyright -->

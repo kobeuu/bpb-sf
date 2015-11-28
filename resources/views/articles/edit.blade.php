@@ -1,14 +1,12 @@
 @extends('admin')
 
-@section('page_title', 'Edit Article')
+@section('page_title', 'Edit Artikel')
 
 @section('content')
 
-		{!! Form::model($article , ['method' => 'PATCH', 'action' => ['ArticlesController@update' , $article->id]]) !!}
-			@include('articles.form', ['submitButtonText' => 'Update'])
-		{!! Form::close() !!}
-
-	@include('errors.list')
+	{!! Form::model($article , ['method' => 'PATCH', 'action' => ['ArticlesController@update' , $article->id]]) !!}
+		@include('articles.form', ['submitButtonText' => 'Update'])
+	{!! Form::close() !!}
 
 @endsection
 

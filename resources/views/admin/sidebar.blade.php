@@ -11,14 +11,9 @@
       </li>
 
       <li class="treeview">
-        <a href="#">
+        <a href="/articles/admin">
           <i class="fa fa-file-text-o"></i> <span>Artikel</span>
-          <i class="fa fa-angle-left pull-right"></i>
         </a>
-        <ul class="treeview-menu">
-          <li><a href="/articles/admin"><i class="fa fa-circle-o"></i> Daftar Artikel</a></li>
-          <li><a href="/articles/create"><i class="fa fa-circle-o"></i> Tambah Artikel Baru</a></li>
-        </ul>
       </li>
 
       <!-- <li class="treeview">
@@ -62,7 +57,7 @@
         </a>
       </li>
 
-      <!-- <li class="treeview">
+      <li class="treeview">
         <a href="#">
           <i class="fa fa-money"></i> <span>Donasi</span>
           <i class="fa fa-angle-left pull-right"></i>
@@ -71,7 +66,7 @@
           <li><a href="/donations/admin"><i class="fa fa-circle-o"></i> Daftar Donasi </a></li>
           <li><a href="/donors/admin"><i class="fa fa-circle-o"></i> Semua Donatur</a></li>
         </ul>
-      </li> -->
+      </li>
 
     </ul>
 </aside>

@@ -39,6 +39,11 @@
             @yield('page_title')
           </h1>
 
+          <ol class="breadcrumb">
+            <li><a href="/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">@yield('page_title')</li>
+          </ol>
+
         </section>
 
         <!-- Main content -->

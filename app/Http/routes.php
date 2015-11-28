@@ -19,7 +19,7 @@ Route::get('profil', 'PagesController@profile');
 Route::get('peserta', 'PagesController@peserta');
 Route::get('prestasi', 'PagesController@prestasi');
 Route::get('gallery', 'ImagesController@index');
-Route::get('kontak', 'MessagesController@create');
+Route::get('kontak', 'MessagesController@index');
 Route::get('donasi', 'PagesController@donasi');
 
 Route::get('dashboard', 'AdminController@index');

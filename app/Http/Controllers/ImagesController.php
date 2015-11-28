@@ -62,6 +62,8 @@ class ImagesController extends Controller {
 
     $image->save();
 
+		flash()->success('Gambar telah ditambahkan!');
+
 		return redirect('images/admin');
 	}
 
@@ -76,6 +78,8 @@ class ImagesController extends Controller {
 		$image = Image::findOrFail($id);
 
 		$image->delete();
+
+		flash()->warning('Gambar telah dihapus!');
 
     return redirect('/images/admin');
 	}

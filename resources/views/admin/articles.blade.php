@@ -4,10 +4,13 @@
 
 @section('content')
 <div class="col-md-12">
+  @include('partials.flash')
+
   <div class="box">
     <div class="box-header">
       <h3 class="box-title">Daftar Semua Artikel</h3>
       <div class="box-tools">
+
         <div class="input-group" style="width: 150px;">
           <input type="text" name="table_search" class="form-control input-sm pull-right" placeholder="Search">
           <div class="input-group-btn">
@@ -19,10 +22,10 @@
     <div class="box-body table-responsive no-padding">
       <table class="table table-hover">
         <tr>
-          <th>ID</th>
+          <th>#</th>
           <th>Penulis</th>
-          <th>Judul</th>
-          <th>Isi</th>
+          <th>Tanggal Terbit</th>
+          <th>Judul Artikel</th>
           <th>Status</th>
           <th>Action</th>
         </tr>
@@ -30,8 +33,8 @@
           <tr>
             <td>{{ $article->id }}</td>
             <td>{{ $article->user_id}}</td>
+            <td>{{ $article->published_at }}</td>
             <td>{{ $article->title }}</td>
-            <td>{{ $article->excerpt }}</td>
             <td><span class="label label-success">Pending</span></td>
             <td>
               <a href="/articles/{{ $article->id }}/edit"><span class="btn btn-xs btn-primary">Edit</span></a>
