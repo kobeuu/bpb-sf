@@ -7,6 +7,7 @@ use Illuminate\HttpResponse;
 use App\Http\Controllers\Controller;
 use Auth;
 use App\Tag;
+use App\User;
 
 class ArticlesController extends Controller
 {
@@ -16,7 +17,7 @@ class ArticlesController extends Controller
 	 */
 	public function __construct()
 	{
-		$this->middleware('auth', ['except' => ['index', 'show']]);
+		$this->middleware('auth', ['except' => ['index', 'show', 'user']]);
 	}
 
 	/**
@@ -28,7 +29,7 @@ class ArticlesController extends Controller
 	{
 		$articles = Article::latest('published_at')->published()->paginate(3);
 
-		return view('articles.index', compact('articles'));
+		return view('articles.index', compact('articles','tags'));
 	}
 
 	/**
@@ -40,7 +41,7 @@ class ArticlesController extends Controller
 
 	public function show(Article $article)
 	{
-		return view('articles.show', compact('article'));
+		return view('articles.show', compact('article', 'tags'));
 	}
 
 	/**
@@ -169,5 +170,12 @@ class ArticlesController extends Controller
 
 		return redirect('articles/admin');
   }
+
+	public function user(User $user)
+	{
+		$articles = $user->articles()->published()->paginate(5);
+
+		return view('articles.index', compact('articles'));
+	}
 
 }

@@ -2,6 +2,16 @@
 
   <!-- sidebar: style can be found in sidebar.less -->
   <section class="sidebar">
+    <!-- Sidebar user panel -->
+    <div class="user-panel">
+      <div class="pull-left image">
+        <img src="{{ asset ("/img/dian-p.png") }}" class="img-circle" alt="User Image">
+      </div>
+      <div class="pull-left info">
+        <p>{{ Auth::user()->name }}</p>
+        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+      </div>
+    </div>
 
     <!-- Sidebar Menu -->
     <ul class="sidebar-menu">
@@ -53,19 +63,8 @@
 
       <li>
         <a href="/messages/admin">
-          <i class="fa fa-envelope"></i> <span>Pesan</span> <small class="label pull-right bg-green">new</small>
+          <i class="fa fa-envelope"></i> <span>Pesan</span>
         </a>
-      </li>
-
-      <li class="treeview">
-        <a href="#">
-          <i class="fa fa-money"></i> <span>Donasi</span>
-          <i class="fa fa-angle-left pull-right"></i>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="/donations/admin"><i class="fa fa-circle-o"></i> Daftar Donasi </a></li>
-          <li><a href="/donors/admin"><i class="fa fa-circle-o"></i> Semua Donatur</a></li>
-        </ul>
       </li>
 
     </ul>

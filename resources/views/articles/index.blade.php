@@ -17,10 +17,10 @@
               <h3 class="post-title">{{ $article->title }}</h3>
               <div class="tags">
     						<ul>
-    							<span class="meta-post">Published on 03 Agustus 2015 | Writen by <a href="#">{!! $article->user_id !!}</a>
+    							<span class="meta-post">Published on {{ $article->published_at }} | Writen by <a href="{{ url('/articles/user', $article->user->name) }}">{!! $article->user->name !!}</a>
     							| Tagged under
     							@foreach ($article->tags as $tag)
-    								<li> {{ $tag->name }} </li>
+    								<li> <a href="{{ url('/tags', $tag->name) }}"> {{ $tag->name }} </a> </li>
     							@endforeach
     							</span>
     						</ul>

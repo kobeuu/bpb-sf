@@ -18,10 +18,10 @@
 				@unless ($article->tags->isEmpty())
 					<div class="tags">
 						<ul>
-							<span class="meta-post">Published on 03 Agustus 2015 | Writen by <a href="#">{!! $article->user_id !!}</a>
+							<span class="meta-post">Published on {{ $article->published_at }} | Writen by <a href="{{ url('articles/user', $article->user->name) }}">{!! $article->user->name !!}</a>
 							| Tagged under
 							@foreach ($article->tags as $tag)
-								<li> {{ $tag->name }} </li>
+								<li> <a href="{{ url('/tags', $tag->name) }}"> {{ $tag->name }} </a> </li>
 							@endforeach
 							</span>
 						</ul>
@@ -37,7 +37,7 @@
 						</a>
 					</div>
 					<div class="media-body">
-						<h4 class="media-heading">Dian Purnama</h4>
+						<h4 class="media-heading">{!! $article->user->name !!}</h4>
 						<p>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam tecto beatae vitae dicta eiusmod tempor incididunt ut labore et dolore magn sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit incididunt ut labore et dolore magna aliqua.</p>
 					</div>
 				</div>

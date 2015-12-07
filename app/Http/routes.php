@@ -30,10 +30,13 @@ Route::get('pendaftaran', 'RegistrantsController@create');
 Route::resource('registrants', 'RegistrantsController');
 
 Route::get('articles/admin', 'AdminController@articles');
+Route::get('articles/user/{users}', 'ArticlesController@user');
 Route::resource('articles', 'ArticlesController');
 
+Route::get('messages/show', 'MessagesController@show');
 Route::get('messages/admin', 'AdminController@messages');
 Route::resource('messages', 'MessagesController');
+
 
 Route::get('images/admin', 'ImagesController@create');
 Route::resource('images', 'ImagesController');

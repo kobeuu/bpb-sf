@@ -35,7 +35,7 @@ class AdminController extends Controller {
 
 	public function articles()
 	{
-		$articles = Article::latest('published_at')->paginate(3);
+		$articles = Article::latest('published_at')->paginate(5);
 
 		return view('admin.articles', compact('articles'));
 	}
@@ -49,7 +49,7 @@ class AdminController extends Controller {
 
 	public function messages()
 	{
-		$messages = Message::latest()->get();
+		$messages = Message::latest()->paginate(3);
 
 		return view('admin.messages', compact('messages'));
 	}
@@ -63,7 +63,7 @@ class AdminController extends Controller {
 
 	public function registrants()
 	{
-		$registrants = Registrant::latest()->get();
+		$registrants = Registrant::latest()->paginate(2);
 
 		return view('admin.registrants', compact('registrants'));
 	}

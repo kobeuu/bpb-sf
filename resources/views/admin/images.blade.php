@@ -3,36 +3,8 @@
 @section('page_title', 'Image Galleries')
 
 @section('content')
-<div class="col-md-9">
+<div class="col-md-12">
   @include('partials.flash')
-
-  <div class="box">
-    <div class="box-body table-responsive no-padding">
-      <table class="table table-hover">
-        <tr>
-          <th>#</th>
-          <th>Title</th>
-          <th>Caption</th>
-					<th>Action</th>
-        </tr>
-        @foreach ($images as $image)
-          <tr>
-            <td>{{ $image->id }}</td>
-            <td>{{ $image->title}}</td>
-            <td>{{ $image->caption }}</td>
-            <td>
-              <!-- <a href="/images/{{ $image->id }}/edit"><span class="btn btn-xs btn-primary">Edit</span></a> -->
-              {!! Form::open(['url' => route('images.destroy', $image->id), 'method' => 'delete']) !!}
-                <button type="submit" class="btn btn-xs btn-danger">Delete</button>
-              {!! Form::close() !!}
-            </td>
-          </tr>
-        @endforeach
-      </table>
-    </div><!-- /.box-body -->
-    <div class="box-footer">
-    </div>
-  </div><!-- /.box -->
 </div>
 
 <div class="col-md-3">
@@ -59,7 +31,6 @@
 
 				{!! Form::close() !!}
 
-
 		</div>
 
     <div class="box-footer">
@@ -67,7 +38,18 @@
     </div>
 
 	</div>
-
 </div>
+
+@foreach ($images as $image)
+<div class="col-md-3">
+  <div class="box">
+    <div class="box-body">
+      <img src="{{ url('uploads/gallery', $image->file) }}" alt="{{ $image->title }}" class="img-responsive">
+      <h3>{{ $image->title }}</h3>
+      <p>{{ $image->caption }}</p>
+    </div>
+  </div>
+</div>
+@endforeach
 
 @endsection

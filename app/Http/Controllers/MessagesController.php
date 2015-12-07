@@ -48,7 +48,7 @@ class MessagesController extends Controller {
 			'hp' => 'required|min:6',
 			'email' => 'required',
 			'subject' => 'required',
-			'message' => 'required|max:255',
+			'message' => 'required|max:1024',
 		]);
 
 		flash()->success('Pesan anda telah kami terima!');
@@ -64,9 +64,10 @@ class MessagesController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show(Message $message)
 	{
-		//
+
+		return view('messages.show', compact('message'));
 	}
 
 	/**

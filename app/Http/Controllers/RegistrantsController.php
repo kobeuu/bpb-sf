@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Registrant;
 use Illuminate\Support\Facades\Mail;
 use Excel;
+use Carbon\Carbon;
 
 class registrantsController extends Controller {
 
@@ -97,7 +98,7 @@ class registrantsController extends Controller {
 
 	public function exportToExcel()
 	{
-		Excel::create('daftar peserta', function ($excel)
+		Excel::create(Carbon::now().' - semua pendaftar', function ($excel)
 		{
 			$excel->setTitle('Our new awesome title');
 

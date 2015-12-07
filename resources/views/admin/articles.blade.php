@@ -6,38 +6,29 @@
 <div class="col-md-12">
   @include('partials.flash')
 
-  <div class="box">
-    <div class="box-header">
-      <h3 class="box-title">Daftar Semua Artikel</h3>
-      <div class="box-tools">
-
-        <div class="input-group" style="width: 150px;">
-          <input type="text" name="table_search" class="form-control input-sm pull-right" placeholder="Search">
-          <div class="input-group-btn">
-            <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
-          </div>
-        </div>
-      </div>
-    </div><!-- /.box-header -->
+  <div class="box box-primary">
     <div class="box-body table-responsive no-padding">
       <table class="table table-hover">
         <tr>
-          <th>#</th>
-          <th>Penulis</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Tags</th>
           <th>Tanggal Terbit</th>
-          <th>Judul Artikel</th>
           <th>Status</th>
           <th>Action</th>
         </tr>
         @foreach ($articles as $article)
           <tr>
-            <td>{{ $article->id }}</td>
-            <td>{{ $article->user_id}}</td>
-            <td>{{ $article->published_at }}</td>
-            <td>{{ $article->title }}</td>
-            <td><span class="label label-success">Pending</span></td>
+            <td><a href="/articles/{{ $article->id }}/edit"><strong>{{ $article->title }}</strong></a></td>
+            <td>{{ $article->user->name }}</td>
             <td>
-              <a href="/articles/{{ $article->id }}/edit"><span class="btn btn-xs btn-primary">Edit</span></a>
+              @foreach ($article->tags as $tag)
+                <li>{{ $tag->name }}</li>
+              @endforeach
+            </td>
+            <td>{{ $article->published_at }}</td>
+            <td><span class="label label-success">Published</span></td>
+            <td>
               {!! Form::open(['url' => route('articles.destroy', $article->id), 'method' => 'delete']) !!}
                 <button type="submit" class="btn btn-xs btn-danger">Delete</button>
               {!! Form::close() !!}
@@ -47,6 +38,9 @@
       </table>
     </div><!-- /.box-body -->
     <div class="box-footer">
+      <div class="pull-right">
+        <a href="/articles/create" class="btn btn-primary">Tambah Artikel</a>
+      </div>
       {!! $articles->render() !!}
     </div>
   </div><!-- /.box -->
