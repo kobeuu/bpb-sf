@@ -11,14 +11,16 @@
     <div class="box-body table-responsive no-padding">
       <table class="table table-hover">
         <tr>
+          <th>Terbit</th>
           <th>Title</th>
-          <th>Tanggal Terbit</th>
+          <th>Body</th>
           <th>Action</th>
         </tr>
         @foreach ($news as $new)
           <tr>
-            <td><a href="/news/{{ $new->id }}/edit"><strong>{{ $new->title }}</strong></a></td>
             <td>{{ $new->published_at }}</td>
+            <td><a href="/news/{{ $new->id }}/edit"><strong>{{ $new->title }}</strong></a></td>
+            <td>{!! substr($new->body, 0, 100 ) !!} ...</td>
             <td>
               {!! Form::open(['url' => route('news.destroy', $new->id), 'method' => 'delete']) !!}
                 <button type="submit" class="btn btn-xs btn-danger">Delete</button>

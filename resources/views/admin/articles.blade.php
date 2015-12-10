@@ -11,15 +11,16 @@
     <div class="box-body table-responsive no-padding">
       <table class="table table-hover">
         <tr>
+          <th>Terbit</th>
           <th>Title</th>
           <th>Author</th>
           <th>Tags</th>
-          <th>Tanggal Terbit</th>
           <th>Status</th>
           <th>Action</th>
         </tr>
         @foreach ($articles as $article)
           <tr>
+            <td>{{ $article->published_at }}</td>
             <td><a href="/articles/{{ $article->id }}/edit"><strong>{{ $article->title }}</strong></a></td>
             <td>{{ $article->user->name }}</td>
             <td>
@@ -27,7 +28,6 @@
                 <li>{{ $tag->name }}</li>
               @endforeach
             </td>
-            <td>{{ $article->published_at }}</td>
             <td><span class="label label-success">Published</span></td>
             <td>
               {!! Form::open(['url' => route('articles.destroy', $article->id), 'method' => 'delete']) !!}

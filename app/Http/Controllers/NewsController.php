@@ -60,7 +60,7 @@ class NewsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit(News $news)
+	public function edit(News $new)
 	{
 		return view('news.edit', compact('new'));
 	}
@@ -71,9 +71,13 @@ class NewsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(News $new, Request $request)
 	{
-		//
+		$new->update($request->except('image'));
+
+		flash()->info('Artikel telah diperbarui!');
+
+		return redirect('/dashboard/news');
 	}
 
 	/**
@@ -82,9 +86,13 @@ class NewsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy(News $new)
 	{
-		//
+		$new->delete();
+
+		flash()->warning('Berita telah dihapus!');
+
+		return redirect('dashboard/news');
 	}
 
 	private function createNews(Request $request)

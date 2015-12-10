@@ -52,7 +52,7 @@
               <img src="{{ url('uploads/images', $new->image) }}" alt="thumbnail image" class="img-responsive">
               <div class="caption">
                 <h4>{{ $new->title }}</h4>
-                <span class="meta-post">{{ $new->published_at }}</span>
+                <span class="meta-post">Published at {{ $new->published_at }}</span>
                 {!! substr($new->body, 0, 250 ) !!} ...
                 <span class="btn-selengkapnya"><a href="#" role="button">Selengkapnya</a></span>
               </div>
