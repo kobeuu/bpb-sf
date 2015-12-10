@@ -97,24 +97,19 @@ class UsersController extends Controller {
 	{
 		$id = Auth::user()->id;
 		$user = User::findOrFail($id)->update($request->except(['password', 'avatar']));
-
 		if($request->hasFile('avatar'))
     {
         $avatar = $request->file('avatar');
         $filename = $avatar->getClientOriginalName();
         $extension = $avatar ->getClientOriginalExtension();
         $avatar = sha1($filename . time()) . '.' . $extension;
-
 				$destinationPath = public_path('/uploads/avatar/');
         $request->file('avatar')->move($destinationPath, $avatar);
 				$article -> avatar = $avatar;
 
 				$article -> save();
-
     }
-
 		flash()->info('Profil telah diperbarui!');
-
 		return redirect('/dashboard/profil');
 	}
 
@@ -124,9 +119,11 @@ class UsersController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy(User $user)
 	{
-		//
+		$user->delete();
+		flash()->warning('Pengguna telah dihapus!');
+		return redirect('dashboard/users');
 	}
 
 }

@@ -11,16 +11,19 @@
           <th>ID</th>
           <th>Nama</th>
           <th>Alamat Email</th>
-          <th>Action</th>
+          <th>Peran</th>
+          <th>Pilihan</th>
         </tr>
         @foreach ($users as $user)
           <tr>
             <td>{{ $user->id }}</td>
             <td>{{ $user->name }}</td>
-            <td>{{ $user->admin }}</td>
             <td>{{ $user->email }}</td>
+            <td>{{ $user->admin }}</td>
             <td>
-                <button type="submit" class="btn btn-xs btn-danger">Delete</button>
+              {!! Form::open(['url' => route('users.destroy', $user->id), 'method' => 'delete']) !!}
+                <button type="submit" class="btn btn-xs btn-danger">hapus</button>
+              {!! Form::close() !!}
             </td>
           </tr>
         @endforeach
