@@ -16,10 +16,12 @@
   </div><!-- /.box-body -->
   <div class="box-footer">
     <div class="pull-right">
-      <button class="btn btn-default"><i class="fa fa-reply"></i> Reply</button>
+      <!-- <button class="btn btn-default"><i class="fa fa-reply"></i> Reply</button> -->
     </div>
-    <button class="btn btn-default"><i class="fa fa-trash-o"></i> Delete</button>
-    <button class="btn btn-default"><i class="fa fa-print"></i> Print</button>
+    {!! Form::open(['method' => 'delete', 'route' => ['messages.destroy', $message->id]]) !!}
+      <button class="btn btn-danger"><i class="fa fa-trash-o"></i> Delete</button>
+    {!! Form::close() !!}
+    <!-- <button class="btn btn-default"><i class="fa fa-print"></i> Print</button> -->
   </div><!-- /.box-footer -->
 </div><!-- /. box -->
 </div><!-- /.col -->

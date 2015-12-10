@@ -4,6 +4,7 @@ use App\Message;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 
 class MessagesController extends Controller {
@@ -33,7 +34,7 @@ class MessagesController extends Controller {
 	 */
 	public function create()
 	{
-		return view('messages.create');
+		return view('messages.compose');
 	}
 
 	/**
@@ -71,36 +72,43 @@ class MessagesController extends Controller {
 	}
 
 	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
-
-	/**
 	 * Remove the specified resource from storage.
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy(Message $message)
 	{
-		//
+		$message->delete();
+
+		flash()->warning('Pesan telah dihapus!');
+
+		return redirect('/dashboard/message');
+	}
+
+	public function reply($id)
+	{
+		$message = Message::findOrFail($id);
+		return view('message.compose', compact('message'));
+	}
+
+	public function send(Request $request)
+	{
+		$this->validate($request, [
+			'email' => 'required',
+			'subject' => 'required',
+			'message' => 'required|max:1024',
+		]);
+
+		Mail::send('$request->message', function ($message)
+		{
+			$message->from('gamapinsa@gmail.com', 'Gamapinsa');
+			$message->to('$request->email', 'Dede Iskandar')
+							->subject('$request->subject');
+		});
+
+		flash()->success('Pesan anda telah terkirim!');
+
 	}
 
 }

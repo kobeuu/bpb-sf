@@ -9,63 +9,61 @@
       </div>
       <div class="pull-left info">
         <p>{{ Auth::user()->name }}</p>
-        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        <a href="#"><i class="fa fa-circle text-success"></i>{{ Auth::user()->universitas }}</a>
       </div>
     </div>
 
     <!-- Sidebar Menu -->
     <ul class="sidebar-menu">
       <li class="header">MAIN NAVIGATION</li>
-      <li class="active">
+      <li>
         <a href="/dashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
       </li>
 
       <li class="treeview">
-        <a href="/articles/admin">
+        <a href="/dashboard/profil">
+          <i class="fa fa-user"></i> <span>Profil</span>
+        </a>
+      </li>
+
+      <li class="treeview">
+        <a href="/dashboard/articles">
           <i class="fa fa-file-text-o"></i> <span>Artikel</span>
         </a>
       </li>
 
-      <!-- <li class="treeview">
-        <a href="#">
-          <i class="fa fa-newspaper-o"></i> <span>Berita</span>
-          <i class="fa fa-angle-left pull-right"></i>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="#"><i class="fa fa-circle-o"></i> Daftar Berita</a></li>
-          <li><a href="#"><i class="fa fa-circle-o"></i> Tambah Berita Baru</a></li>
-        </ul>
-      </li> -->
+      @if ( Auth::user()->admin)
 
       <li class="treeview">
-        <a href="/users/admin">
-          <i class="fa fa-users"></i> <span>Peserta</span>
-          <!-- <i class="fa fa-angle-left pull-right"></i> -->
+        <a href="/dashboard/news">
+          <i class="fa fa-newspaper-o"></i> <span>Berita</span>
         </a>
-        <!-- <ul class="treeview-menu">
-          <li><a href="#"><i class="fa fa-circle-o"></i> Semua Daftar Peserta</a></li>
-          <li><a href="#"><i class="fa fa-circle-o"></i> Prestasi</a></li>
-          <li><a href="#"><i class="fa fa-circle-o"></i> Tambah Peserta Baru</a></li>
-        </ul> -->
       </li>
 
       <li class="treeview">
-        <a href="/images/admin">
+        <a href="/dashboard/users">
+          <i class="fa fa-users"></i> <span>Pengguna</span>
+        </a>
+      </li>
+
+      <li class="treeview">
+        <a href="/dashboard/images">
           <i class="fa fa-image"></i> <span>Gallery</span>
         </a>
       </li>
 
-      <li class="treeview">
-        <a href="/registrants/admin">
-          <i class="fa fa-user"></i> <span>Pendaftaran</span>
-        </a>
-      </li>
-
       <li>
-        <a href="/messages/admin">
+        <a href="/dashboard/messages">
           <i class="fa fa-envelope"></i> <span>Pesan</span>
         </a>
       </li>
+
+      <li class="treeview">
+        <a href="/dashboard/registrants">
+          <i class="fa fa-user-plus"></i> <span>Pendaftaran</span>
+        </a>
+      </li>
+      @endif
 
     </ul>
 </aside>

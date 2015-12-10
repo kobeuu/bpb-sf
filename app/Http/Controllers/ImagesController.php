@@ -64,7 +64,7 @@ class ImagesController extends Controller {
 
 		flash()->success('Gambar telah ditambahkan!');
 
-		return redirect('images/admin');
+		return redirect('/dashboard/images');
 	}
 
 	/**
@@ -81,7 +81,7 @@ class ImagesController extends Controller {
 
 		flash()->warning('Gambar telah dihapus!');
 
-    return redirect('/images/admin');
+    return redirect('/dashboard/images');
 	}
 
 }

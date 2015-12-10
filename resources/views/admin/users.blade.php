@@ -16,7 +16,8 @@
         @foreach ($users as $user)
           <tr>
             <td>{{ $user->id }}</td>
-            <td>{{ $user->name}}</td>
+            <td>{{ $user->name }}</td>
+            <td>{{ $user->admin }}</td>
             <td>{{ $user->email }}</td>
             <td>
                 <button type="submit" class="btn btn-xs btn-danger">Delete</button>
@@ -26,6 +27,7 @@
       </table>
     </div><!-- /.box-body -->
     <div class="box-footer">
+      {!! $users->render() !!}
     </div>
   </div><!-- /.box -->
   <a href="/users/create" class="btn btn-primary">Tambah Pengguna</a>

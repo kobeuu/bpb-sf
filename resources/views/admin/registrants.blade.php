@@ -4,6 +4,7 @@
 
 @section('content')
 <div class="col-md-12">
+  @if(count($registrants))
   <div class="box box-primary">
 
     <div class="box-body table-responsive no-padding">
@@ -36,6 +37,12 @@
     </div>
   </div><!-- /.box -->
   <a href="/registrants/xlsx" class="btn btn-primary">Export to Excel</a>
+  @else
+  <div class="callout callout-info">
+    <h4>No Registrar!</h4>
+    <p>Belum ada yang mendaftar</p>
+  </div>
+  @endif
 
 </div>
 @endsection

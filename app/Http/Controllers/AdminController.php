@@ -1,12 +1,14 @@
 <?php namespace App\Http\Controllers;
 
 use App\Article;
+use App\News;
 use App\Message;
 use App\Image;
 use App\Registrant;
 use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Auth;
 
 use Illuminate\Http\Request;
 
@@ -21,11 +23,15 @@ class AdminController extends Controller {
 	}
 
 	public function index(){
-		$articles = Article::all();
-		$registrants = Registrant::all();
-		$users = User::all();
-		$messages = Message::all();
-		return view('admin.dashboard', compact('articles', 'registrants', 'users', 'messages'));
+		$count = [
+			'articles' => Article::count(),
+			'registrants' => Registrant::count(),
+			'users' => User::count(),
+			'messages' => Message::count(),
+		];
+
+
+		return view('admin.dashboard', compact('count'));
 	}
 
 	public function login()
@@ -35,16 +41,28 @@ class AdminController extends Controller {
 
 	public function articles()
 	{
-		$articles = Article::latest('published_at')->paginate(5);
+		$articles = Auth::user()->articles()->latest('published_at')->paginate(5);
+		// $articles = Article::latest('published_at')->paginate(5);
 
 		return view('admin.articles', compact('articles'));
 	}
 
+	public function news()
+	{
+		$news = News::latest()->paginate(5);
+		return view('admin.news', compact('news'));
+	}
+
 	public function users()
 	{
-		$users = User::all();
+		$users = User::paginate(5);
 
 		return view('admin.users', compact('users'));
+	}
+
+	public function profil()
+	{
+		return view('admin.profile');
 	}
 
 	public function messages()

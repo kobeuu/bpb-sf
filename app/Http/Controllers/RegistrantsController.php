@@ -125,4 +125,9 @@ class registrantsController extends Controller {
 		})->download('xlsx');
 	}
 
+	public function cekKelulusan()
+	{
+
+	}
+
 }

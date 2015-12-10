@@ -26,7 +26,6 @@ class ArticleRequest extends Request {
 			'body'	=> 'required',
 			'published_at' => 'required|date',
 			'tag_list'	=> 'required',
-			'excerpt' =>'required',
 		];
 	}
 

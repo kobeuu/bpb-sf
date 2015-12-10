@@ -2,6 +2,9 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Article;
+use App\News;
+use App\Image;
 
 use Illuminate\Http\Request;
 
@@ -14,7 +17,10 @@ class PagesController extends Controller {
      */
     public function index()
     {
-        return view('pages.index');
+        $images = Image::latest()->get();
+        $news = News::latest('published_at')->published()->get();
+        $articles = Article::latest('published_at')->published()->get();
+        return view('pages.index', compact('articles', 'news', 'images'));
     }
 
     /**
@@ -75,5 +81,10 @@ class PagesController extends Controller {
     public function donasi()
     {
         return view('pages.donasi');
+    }
+
+    public function kelulusan()
+    {
+      return view('pages.kelulusan');
     }
 }

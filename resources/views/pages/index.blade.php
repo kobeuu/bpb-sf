@@ -44,47 +44,22 @@
     </div>
     <div class="row">
       <ul class="post-list list-unstyled">
+
+        @foreach ($news as $new)
         <li>
           <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-              <img src="img/thumb.svg" alt="thumbnail image">
+              <img src="{{ url('uploads/images', $new->image) }}" alt="thumbnail image" class="img-responsive">
               <div class="caption">
-                <h4>Lorem ipsum dolor sit amet sed utnim ad minim</h4>
-                <span class="meta-post">03 Agustus 2015 | Posted by <a href="#">Admin</a></span>
-                <p>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam tecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit incididunt ut labore et dolore magna aliqua.</p>
+                <h4>{{ $new->title }}</h4>
+                <span class="meta-post">{{ $new->published_at }}</span>
+                {!! substr($new->body, 0, 250 ) !!} ...
                 <span class="btn-selengkapnya"><a href="#" role="button">Selengkapnya</a></span>
               </div>
             </div>
           </div>
         </li>
-
-        <li>
-          <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-              <img src="img/thumb.svg" alt="thumbnail image 2">
-              <div class="caption">
-                <h4>Lorem ipsum dolor sit amet sed utnim ad minim</h4>
-                <span class="meta-post">03 Agustus 2015 | Posted by <a href="#">Admin</a></span>
-                <p>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam tecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit incididunt ut labore et dolore magna aliqua.</p>
-                <span class="btn-selengkapnya"><a href="#" role="button">Selengkapnya</a></span>
-              </div>
-            </div>
-          </div>
-        </li>
-
-        <li>
-          <div class="col-sm-6 col-md-4 hidden-sm">
-            <div class="thumbnail">
-              <img src="img/thumb.svg" alt="thumbnail image 3">
-              <div class="caption">
-                <h4>Lorem ipsum dolor sit amet sed utnim ad minim</h4>
-                <span class="meta-post">03 Agustus 2015 | Posted by <a href="#">Admin</a></span>
-                <p>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam tecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit incididunt ut labore et dolore magna aliqua.</p>
-                <span class="btn-selengkapnya"><a href="#" role="button">Selengkapnya</a></span>
-              </div>
-            </div>
-          </div>
-        </li>
+        @endforeach
 
       </ul>
     </div><!-- /.row -->
@@ -104,47 +79,21 @@
     </div>
     <div class="row">
       <ul class="post-list list-unstyled">
+        @foreach ($articles as $article)
         <li>
           <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-              <img src="img/thumb.svg" alt="thumbnail image">
+              <img src="{{ url('uploads/images', $article->image) }}" alt="thumbnail image" class="img-responsive">
               <div class="caption">
-                <h4>Lorem ipsum dolor sit amet sed utnim ad minim</h4>
-                <span class="meta-post">03 Agustus 2015 | Posted by <a href="#">Admin</a></span>
-                <p>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam tecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit incididunt ut labore et dolore magna aliqua.</p>
+                <h4>{{ $article->title }}</h4>
+                <span class="meta-post">{{ $article->published_at }} | Posted by <a href="#">{{ $article->user->name }}</a></span>
+                {!! substr($article->body, 0, 250 ) !!} ...
                 <span class="btn-selengkapnya"><a href="#" role="button">Selengkapnya</a></span>
               </div>
             </div>
           </div>
         </li>
-
-        <li>
-          <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-              <img src="img/thumb.svg" alt="thumbnail image 2">
-              <div class="caption">
-                <h4>Lorem ipsum dolor sit amet sed utnim ad minim</h4>
-                <span class="meta-post">03 Agustus 2015 | Posted by <a href="#">Admin</a></span>
-                <p>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam tecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit incididunt ut labore et dolore magna aliqua.</p>
-                <span class="btn-selengkapnya"><a href="#" role="button">Selengkapnya</a></span>
-              </div>
-            </div>
-          </div>
-        </li>
-
-        <li>
-          <div class="col-sm-6 col-md-4 hidden-sm">
-            <div class="thumbnail">
-              <img src="img/thumb.svg" alt="thumbnail image 3">
-              <div class="caption">
-                <h4>Lorem ipsum dolor sit amet sed utnim ad minim</h4>
-                <span class="meta-post">03 Agustus 2015 | Posted by <a href="#">Admin</a></span>
-                <p>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam tecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit incididunt ut labore et dolore magna aliqua.</p>
-                <span class="btn-selengkapnya"><a href="#" role="button">Selengkapnya</a></span>
-              </div>
-            </div>
-          </div>
-        </li>
+        @endforeach
 
       </ul>
     </div><!-- /.row -->
@@ -163,29 +112,13 @@
       </div>
     </div>
     <div class="row">
+      @foreach ($images as $image)
       <div class="col-xs-6 col-sm-4 col-md-3">
         <a href="#" class="thumbnail">
-          <img src="img/thumb2.svg" alt="gallery1">
+          <img src="{{ url('/uploads/gallery', $image->file) }}" alt="gallery1">
         </a>
       </div>
-
-      <div class="col-xs-6 col-sm-4 col-md-3">
-        <a href="#" class="thumbnail">
-          <img src="img/thumb2.svg" alt="gallery2">
-        </a>
-      </div>
-
-      <div class="col-xs-6 col-sm-4 col-md-3">
-        <a href="#" class="thumbnail">
-          <img src="img/thumb2.svg" alt="gallery3">
-        </a>
-      </div>
-
-      <div class="col-xs-6 col-sm-4 col-md-3 hidden-sm">
-        <a href="#" class="thumbnail">
-          <img src="img/thumb2.svg" alt="gallery2">
-        </a>
-      </div>
+      @endforeach
     </div>
   </div>
 </section><!-- /#gallery -->

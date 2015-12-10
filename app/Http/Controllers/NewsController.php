@@ -2,6 +2,7 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\News;
 
 use Illuminate\Http\Request;
 
@@ -24,7 +25,8 @@ class NewsController extends Controller {
 	 */
 	public function create()
 	{
-		//
+
+		return view('news.create');
 	}
 
 	/**
@@ -32,9 +34,13 @@ class NewsController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		//
+		$this->createNews($request);
+
+		flash()->success('News has been successfully created!');
+
+		return redirect('/dashboard/news');
 	}
 
 	/**
@@ -54,9 +60,9 @@ class NewsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit(News $news)
 	{
-		//
+		return view('news.edit', compact('new'));
 	}
 
 	/**
@@ -79,6 +85,26 @@ class NewsController extends Controller {
 	public function destroy($id)
 	{
 		//
+	}
+
+	private function createNews(Request $request)
+	{
+		$news = new News($request->except('image'));
+
+		if($request->hasFile('image'))
+    {
+        $file = $request->file('image');
+        $filename = $file->getClientOriginalName();
+        $extension = $file ->getClientOriginalExtension();
+        $image = sha1($filename . time()) . '.' . $extension;
+
+				$destinationPath = public_path('/uploads/images/');
+        $request->file('image')->move($destinationPath, $image);
+				$news -> image = $image;
+    }
+		$news -> save();
+
+		return $news;
 	}
 
 }

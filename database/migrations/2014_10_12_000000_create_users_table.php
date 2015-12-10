@@ -17,10 +17,11 @@ class CreateUsersTable extends Migration {
 			$table->increments('id');
 			$table->string('name');
 			$table->string('email')->unique();
-			$table->string('password', 60);
-			$table->string('role');
-			$table->string('profil');
-			$table->string('role');
+			$table->string('password', 60)->default(bcrypt('123456'));
+			$table->string('admin')->default(0);
+			$table->string('universitas')->nullable();
+			$table->string('profil')->nullable();
+			$table->string('avatar')->nullable();
 			$table->rememberToken();
 			$table->timestamps();
 		});

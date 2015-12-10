@@ -1,44 +1,48 @@
 @extends('admin')
 
-@section('page_title', 'Daftar Artikel')
+@section('page_title', 'Perbarui Profil')
 
 @section('content')
 <div class="col-md-12">
+
   @include('partials.flash')
 
-  <div class="box box-primary">
-    <!-- general form elements -->
-    <div class="box-header with-border">
-      <h3 class="box-title">Quick Example</h3>
-    </div><!-- /.box-header -->
-    <!-- form start -->
-    <form role="form">
-      <div class="box-body">
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputFile">File input</label>
-          <input type="file" id="exampleInputFile">
-          <p class="help-block">Example block-level help text here.</p>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox"> Check me out
-          </label>
-        </div>
-      </div><!-- /.box-body -->
+  <!-- Display Validation Errors -->
+  @include('errors.list')
 
-      <div class="box-footer">
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
-    </form>
-  </div><!-- /.box -->
+  <!-- general form elements -->
+<div class="box box-primary">
+  
+  {!! Form::model($user = new App\User ,['url' => 'users', 'files' => true]) !!}
+    {{ csrf_field() }}
 
+  <div class="box-body">
+    <div class="form-group">
+      {!! Form::label('name', 'Nama Lengkap') !!}
+      {!! Form::text('name', null, ['class' => 'form-control']) !!}
+    </div>
+    <div class="form-group">
+      {!! Form::label('email', 'Email address') !!}
+      {!! Form::email('email', null, ['class' => 'form-control']) !!}
+    </div>
+    <div class="form-group">
+      {!! Form::label('universitas', 'Jurusan / Universitas') !!}
+      {!! Form::text('universitas', null, ['class' => 'form-control']) !!}
+    </div>
+    <div class="form-group">
+      {!! Form::label('profil', 'Profil') !!}
+      {!! Form::textarea('profil', null, ['class' => 'form-control', 'style' => 'width: 100%; height: 100px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;']) !!}
+    </div>
+    <div class="form-group">
+      {!! Form::label('avatar', 'Gambar Avatar') !!}
+      {!! Form::file('avatar', null, ['class' => 'form-control']) !!}
+    </div>
+  </div><!-- /.box-body -->
+
+  <div class="box-footer">
+    <button type="submit" class="btn btn-primary">Tambah</button>
+  </div>
+	{!! Form::close() !!}
+</div>
 </div>
 @endsection

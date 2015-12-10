@@ -27,9 +27,10 @@ class ArticlesController extends Controller
 	 */
 	public function index()
 	{
+
 		$articles = Article::latest('published_at')->published()->paginate(3);
 
-		return view('articles.index', compact('articles','tags'));
+		return view('articles.index', compact('articles'));
 	}
 
 	/**
@@ -68,7 +69,7 @@ class ArticlesController extends Controller
 
 		flash()->success('Your article has been successfully created!');
 
-		return redirect('articles/admin');
+		return redirect('/dashboard/articles');
 	}
 
 	/**
@@ -113,7 +114,7 @@ class ArticlesController extends Controller
 
 		flash()->info('Artikel telah diperbarui!');
 
-		return redirect('articles/admin');
+		return redirect('/dashboard/articles');
 	}
 
 	/**
@@ -168,7 +169,7 @@ class ArticlesController extends Controller
 		flash()->warning('Artikel telah dihapus!');
 
 
-		return redirect('articles/admin');
+		return redirect('dashboard/articles');
   }
 
 	public function user(User $user)

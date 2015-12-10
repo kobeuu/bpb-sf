@@ -27,7 +27,7 @@
 		        {!! Form::textarea('caption', null, ['class' => 'form-control', 'placeholder' => 'Nama Lengkap', 'rows' => '2']) !!}
 		    </div>
 
-		    <button type="submit" class="btn btn-primary btn-block">Kirim</button>
+		    <button type="submit" class="btn btn-primary btn-block">Tambah</button>
 
 				{!! Form::close() !!}
 
@@ -47,6 +47,9 @@
       <img src="{{ url('uploads/gallery', $image->file) }}" alt="{{ $image->title }}" class="img-responsive">
       <h3>{{ $image->title }}</h3>
       <p>{{ $image->caption }}</p>
+      {!! Form::open(['url' => route('images.destroy', $image->id), 'method' => 'delete']) !!}
+        <button type="submit" class="btn btn-xs btn-danger">hapus</button>
+      {!! Form::close() !!}
     </div>
   </div>
 </div>
