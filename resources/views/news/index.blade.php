@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('judul-halaman', 'Tulisan Mapinsa')
+@section('judul-halaman', 'Berita Aktivitas')
 
 @section('content')
 
@@ -17,12 +17,7 @@
               <h3 class="post-title">{{ $new->title }}</h3>
               <div class="tags">
     						<ul>
-    							<span class="meta-post">Published on {{ $new->published_at }} | Writen by <a href="{{ url('/news/user', $new->user->name) }}">{!! $new->user->name !!}</a>
-    							| Tagged under
-    							@foreach ($new->tags as $tag)
-    								<li> <a href="{{ url('/tags', $tag->name) }}"> {{ $tag->name }} </a> </li>
-    							@endforeach
-    							</span>
+    							<span class="meta-post">Published on {{ $new->published_at }}</span>
     						</ul>
     					</div>
               <div class="media">

@@ -38,7 +38,7 @@
   </div><!-- /.box -->
   @else
     <div class="callout callout-info">
-      <h4>No News!</h4>
+      <h4>Tidak ada berita</h4>
       <p>Anda belum menulis berita apapun</p>
     </div>
   @endif

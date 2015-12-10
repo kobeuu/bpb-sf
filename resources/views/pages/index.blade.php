@@ -31,6 +31,7 @@
   </div>
 </section><!-- /#empat karakter -->
 
+@if (count($news))
 <!-- berita -->
 <section id="berita">
   <div class="container">
@@ -65,7 +66,9 @@
     </div><!-- /.row -->
   </div>
 </section><!-- /#berita -->
+@endif
 
+@if (count($articles))
 <!-- tulisan mapinsa -->
 <section id="mapinsa">
   <div class="container">
@@ -83,7 +86,11 @@
         <li>
           <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-              <img src="{{ url('uploads/images', $article->image) }}" alt="thumbnail image" class="img-responsive">
+                @if (count($article->image))
+                  <img class="media-object" src="{{ url('uploads/images', $article->image) }}" height="190" width="345" alt="...">
+                @else
+                  <img class="media-object" src="{{ url('img/thumb.svg') }}" alt="...">
+                @endif
               <div class="caption">
                 <h4>{{ $article->title }}</h4>
                 <span class="meta-post">{{ $article->published_at }} | Posted by <a href="#">{{ $article->user->name }}</a></span>
@@ -100,6 +107,9 @@
   </div>
 </section><!-- /#tulisan mapinsa -->
 
+@endif
+
+@if (count($images))
 <!-- gallery -->
 <section id="gallery">
   <div class="container">
@@ -122,6 +132,8 @@
     </div>
   </div>
 </section><!-- /#gallery -->
+
+@endif
 
 <!-- mitra -->
 <section id="mitra">

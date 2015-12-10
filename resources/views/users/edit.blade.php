@@ -14,7 +14,7 @@
   <!-- general form elements -->
   <div class="box box-primary">
     <!-- form start -->
-    {!! Form::model($user , ['method' => 'PATCH', 'action' => ['UsersController@update' , $user->id]]) !!}
+    {!! Form::model($user , ['method' => 'PATCH', 'route' => ['users.update', $user->id], 'files' => true]) !!}
       <div class="box-body">
         <div class="form-group">
           {!! Form::label('name', 'Nama Lengkap') !!}

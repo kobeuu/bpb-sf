@@ -107,7 +107,7 @@ class ArticlesController extends Controller
 				$destinationPath = public_path('/uploads/images/');
         $request->file('image')->move($destinationPath, $image);
 				$article -> image = $image;
-				$article -> save();
+				$article -> update();
     }
 
 		$this->syncTags($article, $request->input('tag_list'));

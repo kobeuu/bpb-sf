@@ -4,6 +4,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Auth;
 use App\User;
+use Image;
+use Input;
 
 use Illuminate\Http\Request;
 
@@ -96,20 +98,25 @@ class UsersController extends Controller {
 	public function update(Request $request)
 	{
 		$id = Auth::user()->id;
-		$user = User::findOrFail($id)->update($request->except(['password', 'avatar']));
+
+		$user = User::findOrFail($id)->update($request->except(['password']));
+
 		if($request->hasFile('avatar'))
     {
-        $avatar = $request->file('avatar');
-        $filename = $avatar->getClientOriginalName();
-        $extension = $avatar ->getClientOriginalExtension();
-        $avatar = sha1($filename . time()) . '.' . $extension;
-				$destinationPath = public_path('/uploads/avatar/');
-        $request->file('avatar')->move($destinationPath, $avatar);
-				$article -> avatar = $avatar;
+        $file = $request->file('avatar');
+        $filename = $file->getClientOriginalName();
+        $extension = $file ->getClientOriginalExtension();
+        $image = sha1($filename . time()) . '.' . $extension;
 
-				$article -> save();
+				$destinationPath = public_path('/uploads/avatar/');
+        $request->file('avatar')->move($destinationPath, $image);
+				$user -> image = $image;
+				$user -> save();
+				
     }
+
 		flash()->info('Profil telah diperbarui!');
+
 		return redirect('/dashboard/profil');
 	}
 

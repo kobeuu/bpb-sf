@@ -39,8 +39,8 @@
   <a href="/registrants/xlsx" class="btn btn-primary">Export to Excel</a>
   @else
   <div class="callout callout-info">
-    <h4>No Registrar!</h4>
-    <p>Belum ada yang mendaftar</p>
+    <h4>Tidak ada pendaftar!</h4>
+    <p>Belum ada isian pendaftaran yang masuk</p>
   </div>
   @endif
 

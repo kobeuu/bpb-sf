@@ -46,8 +46,8 @@
   </div><!-- /.box -->
   @else
     <div class="callout callout-info">
-      <h4>No Article!</h4>
-      <p>Anda belum menulis artikel apapun</p>
+      <h4>Tidak ada artikel</h4>
+      <p>Anda belum menulis artikel apapun, segera klik tombol tambah artikel dibawah untuk mulai menulis artikel</p>
     </div>
   @endif
   <a href="/articles/create" class="btn btn-primary">Tambah Artikel</a>

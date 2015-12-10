@@ -34,8 +34,8 @@
   </div><!-- /. box -->
   @else
   <div class="callout callout-info">
-    <h4>No Message!</h4>
-    <p>Tidak ada pesan masuk</p>
+    <h4>Tidak ada pesan!</h4>
+    <p>Belum ada pesan yang masuk</p>
   </div>
   @endif
 </div><!-- /.col -->

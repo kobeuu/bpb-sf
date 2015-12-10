@@ -27,7 +27,7 @@
     					</div>
               <div class="media">
                 <div class="pull-left">
-                  @if (count($article->image) > 0)
+                  @if (count($article->image))
                     <img class="media-object" src="{{ url('uploads/images', $article->image) }}" height="140" width="220" alt="...">
                   @else
                     <img class="media-object" src="{{ url('img/thumb4.svg') }}" height="140" width="220" alt="...">
