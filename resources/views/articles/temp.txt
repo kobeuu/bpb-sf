@@ -1,0 +1,5 @@
+| Written by <a href="{{ url('/articles/user', $article->user->id) }}">{!! $article->user->name !!}</a>
+| Tagged under
+@foreach ($article->tags as $tag)
+ <li> <a href="{{ url('/tags', $tag->name) }}"> {{ $tag->name }} </a> </li>
+@endforeach
