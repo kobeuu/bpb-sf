@@ -1,1 +1,1 @@
-hi {{ $name }} dari {{ $address }}
+Selamat {{ $name }}. Pendaftaran anda sudah kami terima. 

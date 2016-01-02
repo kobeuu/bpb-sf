@@ -8,46 +8,7 @@
 <section>
   <div class="container">
     <div class="row">
-      <div class="col-md-8">
-        @include('partials.flash')
-
-        <!-- Display Validation Errors -->
-        @include('errors.list')
-
-        {!! Form::open(['url' => route('messages.store')]) !!}
-
-        <div class="form-group">
-            {!! Form::label('ID Donatur') !!}
-            {!! Form::text('donor_id', null, ['class' => 'form-control']) !!}
-        </div>
-
-        <div class="form-group">
-            {!! Form::label('Jumlah Transfer') !!}
-            {!! Form::text('amount', null, ['class' => 'form-control']) !!}
-        </div>
-
-        <div class="form-group">
-            {!! Form::label('Dari Bank') !!}
-            {!! Form::text('bank', null, ['class' => 'form-control']) !!}
-        </div>
-
-        <div class="form-group">
-            {!! Form::label('Subject Pesan') !!}
-            {!! Form::text('subject', null, ['class' => 'form-control']) !!}
-        </div>
-
-        <div class="form-group">
-            {!! Form::label('Pesan') !!}
-            {!! Form::textarea('message', null, ['class' => 'form-control']) !!}
-        </div>
-
-        <button type="submit" class="btn btn-primary btn-block">Kirim</button>
-
-        {!! Form::close() !!}
-
-
-      </div>
-      <div class="col-md-4">
+      <div class="col-md-12">
         <h3>Paket Tahunan :</h3>
         Th-1 @ Rp. 53.000.000<br/>
         Th-2 @ Rp. 22.000.000<br/>

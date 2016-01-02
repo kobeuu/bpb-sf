@@ -27,9 +27,7 @@ class ArticlesController extends Controller
 	 */
 	public function index()
 	{
-
 		$articles = Article::latest('published_at')->published()->paginate(3);
-
 		return view('articles.index', compact('articles'));
 	}
 
@@ -53,7 +51,6 @@ class ArticlesController extends Controller
 	public function create()
 	{
 		$tags = Tag::lists('name' , 'id');
-
 		return view('articles.create', compact('tags'));
 	}
 
@@ -66,9 +63,7 @@ class ArticlesController extends Controller
 	public function store(ArticleRequest $request)
 	{
 		$this->createArticle($request);
-
 		flash()->success('Your article has been successfully created!');
-
 		return redirect('/dashboard/articles');
 	}
 
@@ -81,7 +76,6 @@ class ArticlesController extends Controller
 	public function edit(Article $article)
 	{
 		$tags = Tag::lists('name' , 'id');
-
 		return view('articles.edit', compact('article' , 'tags'));
 	}
 
@@ -94,26 +88,20 @@ class ArticlesController extends Controller
 	 */
 	public function update(Article $article, ArticleRequest $request)
 	{
-
 		$article->update($request->except('image'));
-
 		if($request->hasFile('image'))
     {
         $file = $request->file('image');
         $filename = $file->getClientOriginalName();
         $extension = $file ->getClientOriginalExtension();
         $image = sha1($filename . time()) . '.' . $extension;
-
 				$destinationPath = public_path('/uploads/images/');
         $request->file('image')->move($destinationPath, $image);
 				$article -> image = $image;
 				$article -> update();
     }
-
 		$this->syncTags($article, $request->input('tag_list'));
-
 		flash()->info('Artikel telah diperbarui!');
-
 		return redirect('/dashboard/articles');
 	}
 
@@ -144,15 +132,12 @@ class ArticlesController extends Controller
         $filename = $file->getClientOriginalName();
         $extension = $file ->getClientOriginalExtension();
         $image = sha1($filename . time()) . '.' . $extension;
-
 				$destinationPath = public_path('/uploads/images/');
         $request->file('image')->move($destinationPath, $image);
 				$article -> image = $image;
     }
 		$article -> save();
-
 		$this->syncTags($article, $request->input('tag_list'));
-
 		return $article;
 	}
 
@@ -165,17 +150,13 @@ class ArticlesController extends Controller
   public function destroy(Article $article)
   {
     $article->delete();
-
 		flash()->warning('Artikel telah dihapus!');
-
-
 		return redirect('dashboard/articles');
   }
 
 	public function user(User $user)
 	{
 		$articles = $user->articles()->published()->paginate(5);
-
 		return view('articles.index', compact('articles'));
 	}
 

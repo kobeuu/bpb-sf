@@ -34,27 +34,7 @@ class PagesController extends Controller {
     }
 
     /**
-     * display profile page.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function peserta()
-    {
-        return view('pages.peserta');
-    }
-
-    /**
-     * display profile page.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function prestasi()
-    {
-        return view('pages.prestasi');
-    }
-
-    /**
-     * display profile page.
+     * display gallery page.
      *
      * @return \Illuminate\Http\Response
      */
@@ -74,7 +54,7 @@ class PagesController extends Controller {
     }
 
     /**
-     * display profile page.
+     * display donasi page.
      *
      * @return \Illuminate\Http\Response
      */
@@ -83,6 +63,11 @@ class PagesController extends Controller {
         return view('pages.donasi');
     }
 
+    /**
+     * display kelulusan page.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function kelulusan()
     {
       return view('pages.kelulusan');

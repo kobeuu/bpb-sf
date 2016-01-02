@@ -12,16 +12,6 @@ use Carbon\Carbon;
 class registrantsController extends Controller {
 
 	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		//
-	}
-
-	/**
 	 * Show the form for creating a new resource.
 	 *
 	 * @return Response
@@ -69,15 +59,11 @@ class registrantsController extends Controller {
 			'moto' => 'required',
 			'foto' => 'required',
 		]);
-
 		Registrant::create($request->except('foto'));
-
 		if ($request->hasFile('foto'))
 		{
 			$request->file('foto')->move(public_path('uploads/registrants'), $request->file('foto')->getClientOriginalName());
-
 		 	$registrant->foto = $request->file('foto')->getClientOriginalName();
-
 		 	$registrant->save();
 		}
 
@@ -88,46 +74,30 @@ class registrantsController extends Controller {
 			$message->to('kobeuu@gmail.com', 'Dede Iskandar')
 							->subject('welcome');
 		});
-
-		//flash()->success('Your article has been created!');
 		flash()->success('Pendaftaran anda telah kami terima!');
-
 		return redirect('/pendaftaran');
-
 	}
 
 	public function exportToExcel()
 	{
 		Excel::create(Carbon::now().' - semua pendaftar', function ($excel)
 		{
-			$excel->setTitle('Our new awesome title');
-
-			// Our first sheet
-    $excel->sheet('First sheet', function($sheet) {
-
+			$excel->setTitle('Semua Pendaftar');
+    	$excel->sheet('First sheet', function($sheet) {
 			$titles = array(
 				'No. Registrasi',
 				'Nama Lengkap'
 			);
-
 			$registrants = Registrant::all();
-
 			$sheet->fromModel($registrants, null, 'A1', true);
 
     });
-
-    // Our second sheet
-    $excel->sheet('Second sheet', function($sheet) {
-
-    });
-
 
 		})->download('xlsx');
 	}
 
 	public function cekKelulusan()
 	{
-
 	}
 
 }

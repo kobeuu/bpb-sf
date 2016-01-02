@@ -12,16 +12,6 @@ use Illuminate\Http\Request;
 class UsersController extends Controller {
 
 	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		//
-	}
-
-	/**
 	 * Show the form for creating a new resource.
 	 *
 	 * @return Response
@@ -53,28 +43,13 @@ class UsersController extends Controller {
         $filename = $avatar->getClientOriginalName();
         $extension = $avatar ->getClientOriginalExtension();
         $avatar = sha1($filename . time()) . '.' . $extension;
-
 				$destinationPath = public_path('/uploads/avatar/');
         $request->file('avatar')->move($destinationPath, $avatar);
 				$article->avatar = $avatar;
-
 				$article->save();
-
     }
 
-
 		return redirect ('/dashboard/users');
-	}
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
 	}
 
 	/**
@@ -112,11 +87,9 @@ class UsersController extends Controller {
         $request->file('avatar')->move($destinationPath, $image);
 				$user -> image = $image;
 				$user -> save();
-				
+
     }
-
 		flash()->info('Profil telah diperbarui!');
-
 		return redirect('/dashboard/profil');
 	}
 

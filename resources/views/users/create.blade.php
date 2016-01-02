@@ -12,9 +12,8 @@
 
   <!-- general form elements -->
 <div class="box box-primary">
-  
+
   {!! Form::model($user = new App\User ,['url' => 'users', 'files' => true]) !!}
-    {{ csrf_field() }}
 
   <div class="box-body">
     <div class="form-group">

@@ -53,9 +53,7 @@ class MessagesController extends Controller {
 		]);
 
 		flash()->success('Pesan anda telah kami terima!');
-
 		Message::create($request->all());
-
 		return redirect ('/kontak');
 	}
 
@@ -67,7 +65,6 @@ class MessagesController extends Controller {
 	 */
 	public function show(Message $message)
 	{
-
 		return view('messages.show', compact('message'));
 	}
 
@@ -80,9 +77,7 @@ class MessagesController extends Controller {
 	public function destroy(Message $message)
 	{
 		$message->delete();
-
 		flash()->warning('Pesan telah dihapus!');
-
 		return redirect('/dashboard/message');
 	}
 

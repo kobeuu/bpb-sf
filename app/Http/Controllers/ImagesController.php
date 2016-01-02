@@ -25,7 +25,6 @@ class ImagesController extends Controller {
 	public function index()
 	{
 		$images = Image::all();
-
 		return view('pages.gallery', compact('images'));
 	}
 
@@ -55,15 +54,10 @@ class ImagesController extends Controller {
 		]);
 
 		$image = new Image($request->except('file'));
-
 		$request->file('file')->move(public_path('uploads/gallery'), $request->file('file')->getClientOriginalName());
-
     $image->file = $request->file('file')->getClientOriginalName();
-
     $image->save();
-
 		flash()->success('Gambar telah ditambahkan!');
-
 		return redirect('/dashboard/images');
 	}
 
@@ -76,11 +70,8 @@ class ImagesController extends Controller {
 	public function destroy($id)
 	{
 		$image = Image::findOrFail($id);
-
 		$image->delete();
-
 		flash()->warning('Gambar telah dihapus!');
-
     return redirect('/dashboard/images');
 	}
 

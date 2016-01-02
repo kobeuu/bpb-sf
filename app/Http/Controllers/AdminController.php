@@ -29,21 +29,12 @@ class AdminController extends Controller {
 			'users' => User::count(),
 			'messages' => Message::count(),
 		];
-
-
 		return view('admin.dashboard', compact('count'));
-	}
-
-	public function login()
-	{
-		return view('auth.logiTemp');
 	}
 
 	public function articles()
 	{
 		$articles = Auth::user()->articles()->latest('published_at')->paginate(5);
-		// $articles = Article::latest('published_at')->paginate(5);
-
 		return view('admin.articles', compact('articles'));
 	}
 
@@ -56,7 +47,6 @@ class AdminController extends Controller {
 	public function users()
 	{
 		$users = User::paginate(5);
-
 		return view('admin.users', compact('users'));
 	}
 
@@ -68,21 +58,18 @@ class AdminController extends Controller {
 	public function messages()
 	{
 		$messages = Message::latest()->paginate(3);
-
 		return view('admin.messages', compact('messages'));
 	}
 
 	public function images()
 	{
 		$images = Image::latest()->get();
-
 		return view('admin.images', compact('images'));
 	}
 
 	public function registrants()
 	{
 		$registrants = Registrant::latest()->paginate(2);
-
 		return view('admin.registrants', compact('registrants'));
 	}
 
