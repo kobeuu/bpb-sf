@@ -10,8 +10,8 @@
     <link rel="shortcut icon" href="{{{ asset('favicon.ico') }}}">
     <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
-
   </head>
+  
   <body>
     <div id="fb-root"></div>
     <script>
@@ -23,7 +23,7 @@
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
     </script>
-    
+
     <!-- header -->
     @include('pages.header')
 
@@ -36,6 +36,5 @@
     <script src="js/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <!-- <script src="js/search.js"></script> -->
-
   </body>
 </html>
