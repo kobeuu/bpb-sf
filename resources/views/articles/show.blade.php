@@ -32,7 +32,11 @@
 
 				<div class="author">
 					<div class="media-left">
-						<img class="media-object" src="/img/dian-p.png" width="120px" alt="avatar">
+						@if (count($article->user->avatar) > 0)
+				          <img class="img-circle" src="{{ URL('/uploads/avatar/'. $article->user->avatar) }}" width="120px" alt="User Avatar">
+				        @else
+				          <img class="img-circle" src="{{ asset('/img/avatar.svg') }}" width="120px" alt='User Avatar'>
+				        @endif
 					</div>
 					<div class="media-body">
 						<h4 class="media-heading">{!! $article->user->name !!}</h4>

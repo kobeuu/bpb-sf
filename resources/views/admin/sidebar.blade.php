@@ -5,7 +5,11 @@
     <!-- Sidebar user panel -->
     <div class="user-panel">
       <div class="pull-left image">
-        <img src="{{ asset ("/img/dian-p.png") }}" class="img-circle" alt="User Image">
+        @if (count(Auth::user()->avatar) > 0)
+          <img class="img-circle" src="{{ URL('/uploads/avatar/'. Auth::user()->avatar) }}" alt="User Avatar">
+        @else
+          <img class="img-circle" src="{{ asset('/img/avatar.svg') }}" alt='User Avatar'>
+        @endif
       </div>
       <div class="pull-left info">
         <p>{{ Auth::user()->name }}</p>

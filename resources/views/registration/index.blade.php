@@ -18,7 +18,7 @@
         <h3>Data Diri Pendaftar</h3>
         <hr/>
 
-        {!! Form::open(['url' => route('registrants.store'), 'class' => 'form-horizontal']) !!}
+        {!! Form::model($registrant = new App\Registrant, ['url' => 'registrants', 'class' => 'form-horizontal', 'files' => true]) !!}
 
           <div class="form-group">
               {!! Form::label('Nama Lengkap', null, ['class' => 'col-sm-3 control-label']) !!}
@@ -253,7 +253,7 @@
                 Pas Photo terbaru, format jpg/png, ukuran maksimal 256kB.
               </div>
               <div class="col-sm-12">
-              {!! Form::file('foto') !!}
+              {!! Form::file('foto', null, ['class' => 'form-control']) !!}
             </div>
           </div>
 

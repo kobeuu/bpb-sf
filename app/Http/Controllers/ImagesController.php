@@ -54,9 +54,10 @@ class ImagesController extends Controller {
 		]);
 
 		$image = new Image($request->except('file'));
-		$request->file('file')->move(public_path('uploads/gallery'), $request->file('file')->getClientOriginalName());
-    $image->file = $request->file('file')->getClientOriginalName();
-    $image->save();
+		
+        $request->file('file')->move(public_path('uploads/gallery'), $request->file('file')->getClientOriginalName());
+    	$image->file = $request->file('file')->getClientOriginalName();
+    	$image->save();
 		flash()->success('Gambar telah ditambahkan!');
 		return redirect('/dashboard/images');
 	}

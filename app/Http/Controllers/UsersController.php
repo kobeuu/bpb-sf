@@ -45,8 +45,8 @@ class UsersController extends Controller {
         $avatar = sha1($filename . time()) . '.' . $extension;
 				$destinationPath = public_path('/uploads/avatar/');
         $request->file('avatar')->move($destinationPath, $avatar);
-				$article->avatar = $avatar;
-				$article->save();
+				$user->avatar = $avatar;
+				$user->save();
     }
 
 		return redirect ('/dashboard/users');
@@ -70,25 +70,20 @@ class UsersController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update(Request $request)
+	public function update(User $user, Request $request)
 	{
-		$id = Auth::user()->id;
-
-		$user = User::findOrFail($id)->update($request->except(['password']));
-
+		$user->update($request->except('avatar'));
 		if($request->hasFile('avatar'))
-    {
-        $file = $request->file('avatar');
-        $filename = $file->getClientOriginalName();
-        $extension = $file ->getClientOriginalExtension();
-        $image = sha1($filename . time()) . '.' . $extension;
-
+	    {
+	        $file = $request->file('avatar');
+	        $filename = $file->getClientOriginalName();
+	        $extension = $file ->getClientOriginalExtension();
+	        $image = sha1($filename . time()) . '.' . $extension;
 				$destinationPath = public_path('/uploads/avatar/');
-        $request->file('avatar')->move($destinationPath, $image);
-				$user -> image = $image;
-				$user -> save();
-
-    }
+	        $request->file('avatar')->move($destinationPath, $image);
+				$user->avatar = $image;
+				$user-> update();
+	    }
 		flash()->info('Profil telah diperbarui!');
 		return redirect('/dashboard/profil');
 	}

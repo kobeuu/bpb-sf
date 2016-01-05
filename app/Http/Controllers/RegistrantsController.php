@@ -59,12 +59,19 @@ class registrantsController extends Controller {
 			'moto' => 'required',
 			'foto' => 'required',
 		]);
-		Registrant::create($request->except('foto'));
+		
+		$registrant = new Registrant($request->except('foto'));
+
 		if ($request->hasFile('foto'))
 		{
-			$request->file('foto')->move(public_path('uploads/registrants'), $request->file('foto')->getClientOriginalName());
-		 	$registrant->foto = $request->file('foto')->getClientOriginalName();
-		 	$registrant->save();
+			$file = $request->file('foto');
+	        $filename = $file->getClientOriginalName();
+	        $extension = $file ->getClientOriginalExtension();
+	        $image = sha1($filename . time()) . '.' . $extension;
+					$destinationPath = public_path('/uploads/registrants/');
+	        $request->file('foto')->move($destinationPath, $image);
+					$registrant->image = $image;
+					$registrant->update();
 		}
 
 		Mail::send('emails.konfirmasi',

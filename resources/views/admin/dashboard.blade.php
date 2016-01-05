@@ -72,7 +72,11 @@
     <!-- Add the bg color to the header using any of the bg-* classes -->
     <div class="widget-user-header bg-yellow">
       <div class="widget-user-image">
-        <img class="img-circle" src="{{ asset ("/img/dian-p.png") }}" alt="User Avatar">
+      @if (count(Auth::user()->avatar) > 0)
+        <img class="img-circle" src="{{ URL('/uploads/avatar/'. Auth::user()->avatar) }}" alt="User Avatar">
+      @else
+        <img class="img-circle" src="{{ asset('/img/avatar.svg') }}" alt='User Avatar'>
+      @endif
       </div><!-- /.widget-user-image -->
       <h3 class="widget-user-username">{{ Auth::user()->name }}</h3>
       <h5 class="widget-user-desc">{{ Auth::user()->universitas }}</h5>

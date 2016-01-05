@@ -4,7 +4,7 @@
 
 @section('content')
 
-	{!! Form::model($article = new App\Article ,['url' => 'articles', 'files' => true]) !!}
+	{!! Form::model($article = new App\Article, ['url' => 'articles', 'files' => true]) !!}
 		@include('articles.form', ['submitButtonText' => 'Add Article'])
 	{!! Form::close() !!}
 

@@ -11,26 +11,23 @@
 	<div class="box">
 		<div class="box-body">
 
-			{!! Form::model($image = new App\Image ,['url' => 'images', 'files' => true]) !!}
+			{!! Form::model($image = new App\Image ,['url' => 'images', 'files' => true, 'enctype' => "multipart/form-data"]) !!}
 
-				<div class="form-group">
-						{!! Form::label('Title') !!}
-						{!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Title']) !!}
-				</div>
-				<div class="form-group">
-			      {!! Form::label('File') !!}
-			      {!! Form::file('file', null, ['class' => 'form-control']) !!}
-			  </div>
-
+			<div class="form-group">
+				{!! Form::label('Title') !!}
+				{!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Title']) !!}
+			</div>
+			<div class="form-group">
+		    	{!! Form::label('File') !!}
+		    	{!! Form::file('file', null, ['class' => 'form-control']) !!}
+			 </div>
 		    <div class="form-group">
 		        {!! Form::label('Caption') !!}
 		        {!! Form::textarea('caption', null, ['class' => 'form-control', 'placeholder' => 'Nama Lengkap', 'rows' => '2']) !!}
 		    </div>
 
 		    <button type="submit" class="btn btn-primary btn-block">Tambah</button>
-
 				{!! Form::close() !!}
-
 		</div>
 
     <div class="box-footer">

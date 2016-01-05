@@ -57,7 +57,7 @@ class NewsController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		return "test saja";
 	}
 
 	/**
@@ -101,15 +101,15 @@ class NewsController extends Controller {
 	{
 		$news = new News($request->except('image'));
 		if($request->hasFile('image'))
-    {
-        $file = $request->file('image');
-        $filename = $file->getClientOriginalName();
-        $extension = $file ->getClientOriginalExtension();
-        $image = sha1($filename . time()) . '.' . $extension;
-				$destinationPath = public_path('/uploads/images/');
-        $request->file('image')->move($destinationPath, $image);
-				$news -> image = $image;
-    }
+	    {
+	        $file = $request->file('image');
+	        $filename = $file->getClientOriginalName();
+	        $extension = $file ->getClientOriginalExtension();
+	        $image = sha1($filename . time()) . '.' . $extension;
+					$destinationPath = public_path('/uploads/images/');
+	        $request->file('image')->move($destinationPath, $image);
+					$news -> image = $image;
+	    }
 		$news -> save();
 		return $news;
 	}
