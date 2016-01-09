@@ -43,13 +43,13 @@
 
 			<div class="form-group">
 				{!! Form::label('image', 'Gambar Istimewa') !!}
-
 				@if (count($new->image) > 0)
 					<img class="media-object img-responsive" src="{{ url('uploads/images', $new->image) }}">
-				@else
-					{!! Form::file('image', null, ['class' => 'form-control']) !!}
 				@endif
+			</div>
 
+			<div class="form-group">
+					{!! Form::file('image', null, ['class' => 'form-control']) !!}
 			</div>
 
 		</div>

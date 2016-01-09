@@ -18,7 +18,17 @@ class registrantsController extends Controller {
 	 */
 	public function create()
 	{
-		return view('registration.index');
+		return view('registration.form');
+	}
+
+	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @return Response
+	 */
+	public function show(Registrant $registrant)
+	{
+		return view('registration.show', compact('registrant'));
 	}
 
 	/**
@@ -61,26 +71,23 @@ class registrantsController extends Controller {
 		]);
 		
 		$registrant = new Registrant($request->except('foto'));
+		
+		$file = $request->file('foto');
+        $extension = $file ->getClientOriginalExtension();
+        $name = Carbon::now(). ' - ' . $request->name . '.' . $extension;
+		$destinationPath = public_path('/uploads/registrants/');
+        $request->file('foto')->move($destinationPath, $name);
+		$registrant->foto = $name;
+		$registrant->save();
 
-		if ($request->hasFile('foto'))
-		{
-			$file = $request->file('foto');
-	        $filename = $file->getClientOriginalName();
-	        $extension = $file ->getClientOriginalExtension();
-	        $image = sha1($filename . time()) . '.' . $extension;
-					$destinationPath = public_path('/uploads/registrants/');
-	        $request->file('foto')->move($destinationPath, $image);
-					$registrant->image = $image;
-					$registrant->update();
-		}
+		// Mail::send('emails.konfirmasi',
+		// ['name' => $request->name, 'address' => $request->address ],
+		// function($message)
+		// {
+		// 	$message->to('kobeuu@gmail.com', 'Dede Iskandar')
+		// 			->subject('welcome');
+		// });
 
-		Mail::send('emails.konfirmasi',
-		['name' => $request->name, 'address' => $request->address ],
-		function($message)
-		{
-			$message->to('kobeuu@gmail.com', 'Dede Iskandar')
-							->subject('welcome');
-		});
 		flash()->success('Pendaftaran anda telah kami terima!');
 		return redirect('/pendaftaran');
 	}
@@ -90,7 +97,7 @@ class registrantsController extends Controller {
 		Excel::create(Carbon::now().' - semua pendaftar', function ($excel)
 		{
 			$excel->setTitle('Semua Pendaftar');
-    	$excel->sheet('First sheet', function($sheet) {
+    		$excel->sheet('First sheet', function($sheet) {
 			$titles = array(
 				'No. Registrasi',
 				'Nama Lengkap'
@@ -105,6 +112,7 @@ class registrantsController extends Controller {
 
 	public function cekKelulusan()
 	{
+		return view('registration.create');
 	}
 
 }

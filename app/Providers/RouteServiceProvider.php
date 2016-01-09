@@ -33,6 +33,12 @@ class RouteServiceProvider extends ServiceProvider {
                 : \App\Article::published()->findOrFail($id);
 		});
 
+		$router->bind('news', function($id)
+		{
+			return (\Route::currentRouteName() == "news.edit")
+                ? \App\News::findOrFail($id)
+                : \App\News::published()->findOrFail($id);
+		});
 
 		$router->bind('tags', function($name)
 		{
@@ -49,9 +55,9 @@ class RouteServiceProvider extends ServiceProvider {
 			return \App\Message::where('id', $id)->firstOrFail();
 		});
 
-		$router->bind('news', function($id)
+		$router->bind('registrants', function($id)
 		{
-			return \App\News::where('id', $id)->firstOrFail();
+			return \App\Registrant::where('id', $id)->firstOrFail();
 		});
 
 		$router->model('image', Image::class);

@@ -10,9 +10,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8">
-				<div class="thumbnail">
-					<img src="/uploads/images/{{ $article->image }}"  height="500" width="720" alt="">
-				</div>
+
 				<h2 class="heading-post">{{ $article->title }}</h2>
 
 				@unless ($article->tags->isEmpty())
@@ -27,6 +25,11 @@
 						</ul>
 					</div>
 				@endunless
+
+				<div class="thumbnail">
+					<img src="/uploads/images/{{ $article->image }}"  height="500" width="720" alt="">
+				</div>
+				
 
 				{!! $article->body !!}
 

@@ -35,19 +35,19 @@ class UsersController extends Controller {
 
 		flash()->success('Pengguna sudah ditambahkan!');
 
-		User::create($request->except(['password', 'avatar']));
+		$user = new User($request->except(['password', 'avatar']));
 
 		if($request->hasFile('avatar'))
-    {
-        $avatar = $request->file('avatar');
-        $filename = $avatar->getClientOriginalName();
-        $extension = $avatar ->getClientOriginalExtension();
-        $avatar = sha1($filename . time()) . '.' . $extension;
-				$destinationPath = public_path('/uploads/avatar/');
-        $request->file('avatar')->move($destinationPath, $avatar);
-				$user->avatar = $avatar;
-				$user->save();
-    }
+	    {
+	        $avatar = $request->file('avatar');
+	        $filename = $avatar->getClientOriginalName();
+	        $extension = $avatar ->getClientOriginalExtension();
+	        $name = $request->name . '.' . $extension;
+			$destinationPath = public_path('/uploads/avatar/');
+	        $request->file('avatar')->move($destinationPath, $name);
+			$user->avatar= $name;
+			$user->save();
+	    }
 
 		return redirect ('/dashboard/users');
 	}
@@ -58,7 +58,18 @@ class UsersController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit()
+	public function edit(User $user)
+	{
+		return view('users.edit', compact('user'));
+	}
+
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function show()
 	{
 		$user = Auth::user();
 		return view('users.edit', compact('user'));
@@ -79,10 +90,10 @@ class UsersController extends Controller {
 	        $filename = $file->getClientOriginalName();
 	        $extension = $file ->getClientOriginalExtension();
 	        $image = sha1($filename . time()) . '.' . $extension;
-				$destinationPath = public_path('/uploads/avatar/');
+			$destinationPath = public_path('/uploads/avatar/');
 	        $request->file('avatar')->move($destinationPath, $image);
-				$user->avatar = $image;
-				$user-> update();
+			$user->avatar = $image;
+			$user-> update();
 	    }
 		flash()->info('Profil telah diperbarui!');
 		return redirect('/dashboard/profil');

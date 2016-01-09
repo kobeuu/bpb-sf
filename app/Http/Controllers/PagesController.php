@@ -17,9 +17,9 @@ class PagesController extends Controller {
      */
     public function index()
     {
-        $images = Image::latest()->get();
-        $news = News::latest('published_at')->published()->get();
-        $articles = Article::latest('published_at')->published()->get();
+        $images = Image::latest()->take(4)->get();
+        $news = News::latest('published_at')->published()->take(3)->get();
+        $articles = Article::latest('published_at')->published()->take(3)->get();
         return view('pages.index', compact('articles', 'news', 'images'));
     }
 
@@ -70,6 +70,26 @@ class PagesController extends Controller {
      */
     public function kelulusan()
     {
-      return view('pages.kelulusan');
+      return view('registration.kelulusan');
+    }
+
+    /**
+     * display kelulusan page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function lulus()
+    {
+      return view('registration.lulus');
+    }
+
+    /**
+     * display kelulusan page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function gagal()
+    {
+      return view('registration.gagal');
     }
 }

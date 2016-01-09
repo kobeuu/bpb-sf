@@ -4,7 +4,7 @@
 
 @section('content')
 
-	{!! Form::model($new = new App\News ,['url' => 'news', 'files' => true]) !!}
+	{!! Form::model($new = new App\News, ['url' => 'news', 'files' => true]) !!}
 		@include('news.form', ['submitButtonText' => 'Tambah Berita'])
 	{!! Form::close() !!}
 

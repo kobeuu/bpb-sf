@@ -23,7 +23,7 @@
 			 </div>
 		    <div class="form-group">
 		        {!! Form::label('Caption') !!}
-		        {!! Form::textarea('caption', null, ['class' => 'form-control', 'placeholder' => 'Nama Lengkap', 'rows' => '2']) !!}
+		        {!! Form::textarea('caption', null, ['class' => 'form-control', 'placeholder' => 'Deskripsi Gambar', 'rows' => '2']) !!}
 		    </div>
 
 		    <button type="submit" class="btn btn-primary btn-block">Tambah</button>

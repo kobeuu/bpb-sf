@@ -15,11 +15,11 @@
           @foreach ($news as $new)
             <li class="post">
               <h3 class="post-title">{{ $new->title }}</h3>
-              <div class="tags">
+              <!-- <div class="tags">
     						<ul>
     							<span class="meta-post">Published on {{ $new->published_at }}</span>
     						</ul>
-    					</div>
+    					</div> -->
               <div class="media">
                 <div class="pull-left">
                   @if (count($new->image) > 0)

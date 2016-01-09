@@ -4,7 +4,7 @@
 
 @section('content')
 
-	{!! Form::model($new , ['method' => 'PATCH', 'action' => ['NewsController@update' , $new->id]]) !!}
+	{!! Form::model($new, ['method' => 'PATCH', 'action' => ['NewsController@update', $new->id], 'files' => true]) !!}
 		@include('news.form', ['submitButtonText' => 'Update'])
 	{!! Form::close() !!}
 

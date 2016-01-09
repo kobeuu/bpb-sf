@@ -6,7 +6,7 @@
     <div class="user-panel">
       <div class="pull-left image">
         @if (count(Auth::user()->avatar) > 0)
-          <img class="img-circle" src="{{ URL('/uploads/avatar/'. Auth::user()->avatar) }}" alt="User Avatar">
+          <img class="img-circle" src="{{ url('/uploads/avatar/'. Auth::user()->avatar) }}" alt="User Avatar">
         @else
           <img class="img-circle" src="{{ asset('/img/avatar.svg') }}" alt='User Avatar'>
         @endif

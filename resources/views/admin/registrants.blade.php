@@ -20,7 +20,7 @@
         @foreach ($registrants as $registrant)
           <tr>
             <td>{{ $registrant->created_at }}</td>
-            <td><strong>{{ $registrant->name }}</strong></td>
+            <td><strong><a href="{{ url('/registrants/show', $registrant->id) }}">{{ $registrant->name }}</a></strong></td>
             <td>{{ $registrant->hp}}</td>
             <td>{{ $registrant->sma }}</td>
             <td>{{ $registrant->kota }}</td>

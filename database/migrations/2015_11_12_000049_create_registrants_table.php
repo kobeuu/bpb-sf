@@ -43,7 +43,7 @@ class CreateRegistrantsTable extends Migration {
 			$table->text('potensi');
 			$table->text('mimpi');
 			$table->text('moto');
-			$table->string('foto')->nullable();
+			$table->string('foto');
 			$table->timestamps();
 		});
 	}

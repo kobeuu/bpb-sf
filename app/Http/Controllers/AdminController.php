@@ -69,7 +69,7 @@ class AdminController extends Controller {
 
 	public function registrants()
 	{
-		$registrants = Registrant::latest()->paginate(2);
+		$registrants = Registrant::latest()->paginate(10);
 		return view('admin.registrants', compact('registrants'));
 	}
 

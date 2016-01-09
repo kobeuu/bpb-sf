@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\News;
+use Carbon\Carbon;
 
 use Illuminate\Http\Request;
 
@@ -55,9 +56,9 @@ class NewsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show(News $new)
 	{
-		return "test saja";
+		return view('news.show', compact('new'));
 	}
 
 	/**
@@ -80,7 +81,21 @@ class NewsController extends Controller {
 	public function update(News $new, Request $request)
 	{
 		$new->update($request->except('image'));
-		flash()->info('Artikel telah diperbarui!');
+
+		if($request->hasFile('image'))
+	    {
+	        $file = $request->file('image');
+	        $filename = $file->getClientOriginalName();
+	        $extension = $file ->getClientOriginalExtension();
+	        $image = Carbon::now(). ' - ' . $filename . '.' . $extension;
+			$destinationPath = public_path('/uploads/images/');
+	        $request->file('image')->move($destinationPath, $image);
+			$new->image = $image;
+			$new->update();
+	    }
+
+		flash()->info('Berita telah diperbarui!');
+
 		return redirect('/dashboard/news');
 	}
 
@@ -100,17 +115,19 @@ class NewsController extends Controller {
 	private function createNews(Request $request)
 	{
 		$news = new News($request->except('image'));
+		
 		if($request->hasFile('image'))
 	    {
 	        $file = $request->file('image');
 	        $filename = $file->getClientOriginalName();
 	        $extension = $file ->getClientOriginalExtension();
-	        $image = sha1($filename . time()) . '.' . $extension;
-					$destinationPath = public_path('/uploads/images/');
+	        $image = Carbon::now(). ' - ' . $filename . '.' . $extension;
+			$destinationPath = public_path('/uploads/images/');
 	        $request->file('image')->move($destinationPath, $image);
-					$news -> image = $image;
+			$news->image = $image;
+			$news -> save();
 	    }
-		$news -> save();
+		
 		return $news;
 	}
 

@@ -1,5 +1,10 @@
 @extends('main')
 
+@section('meta')
+<meta name="description" content="Beasiswa Pemimpin Bangsa Sinergi Foundation" />
+    <meta name="keywords" content="beasiswa pemimpin bangsa, bpb, sinergi foundation" />
+@endsection
+
 @section('content')
 
 @include('partials.slider')
@@ -40,7 +45,7 @@
         <h2 class="heading">Berita Aktivitas</h2>
       </div>
       <div class="col-sm-6 col-md-6 text-right btn-semua">
-        <span class="btn-semua"> <a href="/articles" > Lihat Semua Berita Aktivitas</a></span>
+        <span class="btn-semua"> <a href="/news" > Lihat Semua Berita Aktivitas</a></span>
       </div>
     </div>
     <div class="row">
@@ -118,7 +123,7 @@
         <h2 class="heading">Gallery</h2>
       </div>
       <div class="col-sm-6 col-md-6 text-right btn-semua">
-        <span class="btn-semua">Lihat Semua Gallery</span>
+        <span class="btn-semua"><a href="/gallery" >Lihat Semua Gallery</a></span>
       </div>
     </div>
     <div class="row">

@@ -16,6 +16,7 @@ class Registrant extends Model {
 		'sma',
 		'lulus',
 		'email',
+		'foto',
 		'kampung',
 		'desa',
 		'kecamatan',
@@ -38,7 +39,7 @@ class Registrant extends Model {
 		'potensi',
 		'mimpi',
 		'moto',
-		'foto',
+		'foto'
 	];
 
 }

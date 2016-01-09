@@ -10,9 +10,10 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
+/* Home page */
 Route::get('/', 'PagesController@index');
 
+/* Login */
 Route::get('login', 'AdminController@login');
 
 /* Pages */
@@ -23,6 +24,8 @@ Route::get('gallery', 'ImagesController@index');
 Route::get('kontak', 'MessagesController@index');
 Route::get('donasi', 'PagesController@donasi');
 Route::get('kelulusan', 'PagesController@kelulusan');
+Route::get('kelulusan/lulus', 'PagesController@lulus');
+Route::get('kelulusan/gagal', 'PagesController@gagal');
 
 /* Dashboard */
 Route::get('dashboard', 'AdminController@index');
@@ -31,12 +34,12 @@ Route::get('dashboard/messages', 'AdminController@messages');
 Route::get('dashboard/users', 'AdminController@users');
 Route::get('dashboard/images', 'ImagesController@create');
 Route::get('dashboard/registrants', 'AdminController@registrants');
-Route::get('dashboard/profil', 'UsersController@edit');
+Route::get('dashboard/profil', 'UsersController@show');
 Route::get('dashboard/news', 'AdminController@news');
-
 
 /* Registrasi */
 Route::get('registrants/xlsx', 'RegistrantsController@exportToExcel');
+Route::get('registrants/show/{registrants}', 'RegistrantsController@show');
 Route::get('pendaftaran', 'RegistrantsController@create');
 Route::resource('registrants', 'RegistrantsController');
 Route::post('kelulusan', 'RegistrantsController@cekKelulusan');
@@ -63,6 +66,7 @@ Route::get('tags/{tags}', 'TagsController@show');
 /* Users*/
 Route::resource('users', 'UsersController');
 
+/* Auth */
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',

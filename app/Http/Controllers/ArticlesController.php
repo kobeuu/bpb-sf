@@ -68,44 +68,6 @@ class ArticlesController extends Controller
 	}
 
 	/**
-	 * Edit an existing article
-	 *
-	 * @param  integer $id
-	 * @return Response
-	 */
-	public function edit(Article $article)
-	{
-		$tags = Tag::lists('name' , 'id');
-		return view('articles.edit', compact('article' , 'tags'));
-	}
-
-	/**
-	 * update an existing article
-	 *
-	 * @param  integer $id
-	 * @param  ArticleRequest $request
-	 * @return Response
-	 */
-	public function update(Article $article, ArticleRequest $request)
-	{
-		$article->update($request->except('image'));
-		if($request->hasFile('image'))
-	    {
-	        $file = $request->file('image');
-	        $filename = $file->getClientOriginalName();
-	        $extension = $file ->getClientOriginalExtension();
-	        $image = sha1($filename . time()) . '.' . $extension;
-					$destinationPath = public_path('/uploads/images/');
-	        $request->file('image')->move($destinationPath, $image);
-					$article->image = $image;
-					$article->update();
-	    }
-		$this->syncTags($article, $request->input('tag_list'));
-		flash()->info('Artikel telah diperbarui!');
-		return redirect('/dashboard/articles');
-	}
-
-	/**
 	 * Sync up the list of tags in the database
 	 *
 	 * @param  Article $article
@@ -132,13 +94,55 @@ class ArticlesController extends Controller
 	        $filename = $file->getClientOriginalName();
 	        $extension = $file ->getClientOriginalExtension();
 	        $image = sha1($filename . time()) . '.' . $extension;
-					$destinationPath = public_path('/uploads/images/');
+			$destinationPath = public_path('/uploads/images/');
 	        $request->file('image')->move($destinationPath, $image);
-					$article->subimage = $image;
+			$article->image = $image;
 	    }
 		$article -> save();
 		$this->syncTags($article, $request->input('tag_list'));
 		return $article;
+	}
+
+	/**
+	 * Edit an existing article
+	 *
+	 * @param  integer $id
+	 * @return Response
+	 */
+	public function edit(Article $article)
+	{
+		$tags = Tag::lists('name' , 'id');
+		return view('articles.edit', compact('article' , 'tags'));
+	}
+
+	/**
+	 * update an existing article
+	 *
+	 * @param  integer $id
+	 * @param  ArticleRequest $request
+	 * @return Response
+	 */
+	public function update(Article $article, ArticleRequest $request)
+	{
+		$article->update($request->except('image'));
+
+		if($request->hasFile('image'))
+	    {
+	        $file = $request->file('image');
+	        $filename = $file->getClientOriginalName();
+	        $extension = $file ->getClientOriginalExtension();
+	        $image = sha1($filename . time()) . '.' . $extension;
+			$destinationPath = public_path('/uploads/images/');
+	        $request->file('image')->move($destinationPath, $image);
+			$article->image = $image;
+			$article->update();
+	    }
+
+		$this->syncTags($article, $request->input('tag_list'));
+
+		flash()->info('Artikel telah diperbarui!');
+		
+		return redirect('/dashboard/articles');
 	}
 
   /**
