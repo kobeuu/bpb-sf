@@ -44,13 +44,17 @@ class MessagesController extends Controller {
 	 */
 	public function store(Request $request)
 	{
+		$messages = [
+    	'required' => ':attribute harus diisi.',
+		];
+
 		$this->validate($request, [
 			'name' => 'required|min:3',
 			'hp' => 'required|min:6',
 			'email' => 'required',
 			'subject' => 'required',
 			'message' => 'required|max:1024',
-		]);
+		], $messages);
 
 		flash()->success('Pesan anda telah kami terima!');
 		Message::create($request->all());

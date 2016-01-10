@@ -38,6 +38,11 @@ class registrantsController extends Controller {
 	 */
 	public function store(Request $request)
 	{
+		$messages = [
+    	'required' => ':attribute harus diisi.',
+    	'checkbox.required' => 'Untuk mendaftar, anda harus menyetujui bahwa data yang dimasukan sudah benar',
+		];
+
 		$this->validate($request, [
 			'name' => 'required',
 			'jk' => 'required',
@@ -68,7 +73,8 @@ class registrantsController extends Controller {
 			'mimpi' => 'required',
 			'moto' => 'required',
 			'foto' => 'required',
-		]);
+			'checkbox' => 'required',
+		], $messages);
 		
 		$registrant = new Registrant($request->except('foto'));
 		

@@ -23,6 +23,6 @@
 
   <div class="box-footer">
     {!! Form::submit($submitButtonText, ['class' => 'btn btn-primary']) !!}
-    <a class="btn btn-primary pull-right" href="/password/email">Ganti Password</a>
+    <a class="btn btn-primary pull-right" href="/auth/logout">Ganti Password</a>
   </div>
 

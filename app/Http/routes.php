@@ -13,9 +13,6 @@
 /* Home page */
 Route::get('/', 'PagesController@index');
 
-/* Login */
-Route::get('login', 'AdminController@login');
-
 /* Pages */
 Route::get('profil', 'PagesController@profile');
 Route::get('peserta', 'PagesController@peserta');

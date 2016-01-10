@@ -58,34 +58,56 @@
 
         @include('partials.flash')
 
-        <!-- Display Validation Errors -->
-        @include('errors.list')
-
         {!! Form::open(['url' => route('messages.store')]) !!}
 
-        <div class="form-group">
-            {!! Form::label('Nama Lengkap') !!}
+        {!! Form::label('Nama Lengkap') !!}
+        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
             {!! Form::text('name', null, ['class' => 'form-control']) !!}
+            @if ($errors->has('name'))
+                <span class="help-block">
+                  <strong>{{ $errors->first('name') }}</strong>
+                </span>
+            @endif
         </div>
 
-        <div class="form-group">
-            {!! Form::label('Nomor Kontak') !!}
+        {!! Form::label('Nomor Kontak') !!}
+        <div class="form-group{{ $errors->has('hp') ? ' has-error' : '' }}">
             {!! Form::text('hp', null, ['class' => 'form-control']) !!}
+            @if ($errors->has('hp'))
+                <span class="help-block">
+                  <strong>{{ $errors->first('hp') }}</strong>
+                </span>
+            @endif
         </div>
 
-        <div class="form-group">
-            {!! Form::label('Alamat Email') !!}
+        {!! Form::label('Alamat Email') !!}
+        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
             {!! Form::text('email', null, ['class' => 'form-control']) !!}
+            @if ($errors->has('email'))
+                <span class="help-block">
+                  <strong>{{ $errors->first('email') }}</strong>
+                </span>
+            @endif
         </div>
 
-        <div class="form-group">
-            {!! Form::label('Subject Pesan') !!}
+        {!! Form::label('Subject Pesan') !!}
+        <div class="form-group{{ $errors->has('subject') ? ' has-error' : '' }}">
             {!! Form::text('subject', null, ['class' => 'form-control']) !!}
+            @if ($errors->has('subject'))
+                <span class="help-block">
+                  <strong>{{ $errors->first('subject') }}</strong>
+                </span>
+            @endif
         </div>
 
-        <div class="form-group">
-            {!! Form::label('Pesan') !!}
+        {!! Form::label('Pesan') !!}
+        <div class="form-group{{ $errors->has('message') ? ' has-error' : '' }}">
             {!! Form::textarea('message', null, ['class' => 'form-control']) !!}
+            @if ($errors->has('message'))
+                <span class="help-block">
+                  <strong>{{ $errors->first('message') }}</strong>
+                </span>
+            @endif
         </div>
 
         <button type="submit" class="btn btn-primary btn-block">Kirim</button>

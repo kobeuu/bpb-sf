@@ -34,7 +34,12 @@ class AdminController extends Controller {
 
 	public function articles()
 	{
-		$articles = Auth::user()->articles()->latest('published_at')->paginate(5);
+		if(Auth::user()->admin){
+			$articles = Article::latest('published_at')->paginate(5);
+		} else {
+			$articles = Auth::user()->articles()->latest('published_at')->paginate(5);
+		}
+
 		return view('admin.articles', compact('articles'));
 	}
 
