@@ -44,6 +44,7 @@ class CreateRegistrantsTable extends Migration {
 			$table->text('mimpi');
 			$table->text('moto');
 			$table->string('foto');
+			$table->integer('kelulusan');
 			$table->timestamps();
 		});
 	}

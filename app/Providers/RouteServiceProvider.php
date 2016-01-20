@@ -26,11 +26,11 @@ class RouteServiceProvider extends ServiceProvider {
 	{
 		parent::boot($router);
 
-		$router->bind('articles', function($id)
+		$router->bind('articles', function($slug)
 		{
 			return (\Route::currentRouteName() == "articles.edit")
-                ? \App\Article::findOrFail($id)
-                : \App\Article::published()->findOrFail($id);
+                ? \App\Article::findOrFail($slug)
+                : \App\Article::published()->findOrFail($slug);
 		});
 
 		$router->bind('news', function($id)

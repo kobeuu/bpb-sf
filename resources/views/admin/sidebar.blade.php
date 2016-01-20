@@ -21,7 +21,8 @@
     <ul class="sidebar-menu">
       <li class="header">MAIN NAVIGATION</li>
       <li>
-        <a href="/dashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+        <a href="/dashboard">
+        <i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
       </li>
 
       <li class="treeview">
@@ -65,6 +66,12 @@
       <li class="treeview">
         <a href="/dashboard/registrants">
           <i class="fa fa-user-plus"></i> <span>Pendaftaran</span>
+        </a>
+      </li>
+
+      <li class="treeview">
+        <a href="/dashboard/sliders">
+          <i class="fa fa-image"></i> <span>Slider</span>
         </a>
       </li>
       @endif

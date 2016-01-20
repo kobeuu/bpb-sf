@@ -22,7 +22,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['name', 'email', 'password', 'universitas', 'profil', 'avatar'];
+	protected $fillable = ['username','name', 'email', 'password', 'universitas', 'profil', 'avatar'];
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -43,13 +43,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 	public function isAdmin()
 	{
-		if($this->auth()->user()->admin = 1 ){
+		if($this->auth()->user()->role = 1 ){
 			return true;
 		} else {
 			return false;
 		}
-
-
 	}
 
 }

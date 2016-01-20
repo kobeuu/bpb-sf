@@ -17,20 +17,20 @@ class DatabaseSeeder extends Seeder {
 		Model::unguard();
 
 		Tag::create([
-				'name' => 'Kebangsaan',
+				'name' => 'Kebangsaan'
 		]);
 
 		Tag::create([
-				'name' => 'Sosial',
+				'name' => 'kepemimpinan'
 		]);
 
 		Tag::create([
-				'name' => 'Akhlak',
+				'name' => 'Sosial Kemasyarakatan'
 		]);
 
 		User::create([
-			'name' => 'Dede Iskandar',
-			'email' => 'kobeuu@gmail.com',
+			'name' => 'Sinergi Foundation',
+			'email' => 'bpb@sinergifoundation.org',
 			'password' => bcrypt('rendahhati'),
 			'admin' => 1,
 		]);

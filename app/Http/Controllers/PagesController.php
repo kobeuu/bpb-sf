@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Article;
 use App\News;
 use App\Image;
+use App\Slider;
 
 use Illuminate\Http\Request;
 
@@ -17,10 +18,11 @@ class PagesController extends Controller {
      */
     public function index()
     {
+        $sliders = Slider::latest()->get();
         $images = Image::latest()->take(4)->get();
         $news = News::latest('published_at')->published()->take(3)->get();
         $articles = Article::latest('published_at')->published()->take(3)->get();
-        return view('pages.index', compact('articles', 'news', 'images'));
+        return view('pages.index', compact('articles', 'news', 'images', 'sliders'));
     }
 
     /**

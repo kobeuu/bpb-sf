@@ -60,7 +60,7 @@
                 <h4>{{ $new->title }}</h4>
                 <span class="meta-post">Published at {{ $new->published_at }}</span>
                 {!! substr($new->body, 0, 250 ) !!} ...
-                <span class="btn-selengkapnya"><a href="#" role="button">Selengkapnya</a></span>
+                <span class="btn-selengkapnya"><a href="{{ url('/news', $new->slug) }}" role="button">Selengkapnya</a></span>
               </div>
             </div>
           </div>
@@ -100,7 +100,7 @@
                 <h4>{{ $article->title }}</h4>
                 <span class="meta-post">{{ $article->published_at }} | Posted by <a href="#">{{ $article->user->name }}</a></span>
                 {!! substr($article->body, 0, 250 ) !!} ...
-                <span class="btn-selengkapnya"><a href="#" role="button">Selengkapnya</a></span>
+                <span class="btn-selengkapnya"><a href="{{ url('/articles', $article->slug) }}" role="button">Selengkapnya</a></span>
               </div>
             </div>
           </div>

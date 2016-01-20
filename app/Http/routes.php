@@ -29,6 +29,7 @@ Route::get('dashboard', 'AdminController@index');
 Route::get('dashboard/articles', 'AdminController@articles');
 Route::get('dashboard/messages', 'AdminController@messages');
 Route::get('dashboard/users', 'AdminController@users');
+Route::get('dashboard/sliders', 'SlidersController@index');
 Route::get('dashboard/images', 'ImagesController@create');
 Route::get('dashboard/registrants', 'AdminController@registrants');
 Route::get('dashboard/profil', 'UsersController@show');
@@ -43,6 +44,8 @@ Route::post('kelulusan', 'RegistrantsController@cekKelulusan');
 
 /* Articles */
 Route::get('articles/user/{users}', 'ArticlesController@user');
+Route::get('articles/create', 'ArticlesController@create');
+Route::get('articles/{slug}', 'ArticlesController@show');
 Route::resource('articles', 'ArticlesController');
 
 /* News */
@@ -56,6 +59,9 @@ Route::resource('messages', 'MessagesController');
 
 /* Images */
 Route::resource('images', 'ImagesController');
+
+/* Sliders */
+Route::resource('sliders', 'SlidersController');
 
 /* Tags */
 Route::get('tags/{tags}', 'TagsController@show');

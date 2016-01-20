@@ -25,12 +25,13 @@
 						</ul>
 					</div>
 				@endunless
-
-				<div class="thumbnail">
-					<img src="/uploads/images/{{ $article->image }}"  height="500" width="720" alt="">
-				</div>
 				
-
+				@if (count($article->image))
+				<div class="thumbnail">
+                    <img class="media-object" src="{{ url('uploads/images', $article->image) }}" height="500" width="720" alt="gambar istimewa">
+                </div>
+                @endif
+				
 				{!! $article->body !!}
 
 				<div class="author">

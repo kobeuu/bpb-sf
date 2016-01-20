@@ -27,20 +27,22 @@
 
       <div class="col-md-4">
         <address>
-          <strong>Asrama I BPB</strong><br>
-          Jalan Tubagus Ismail III No. 10 Bandung<br>
-          Telp. 022.250 1987
+          <strong>Asrama Bandung</strong><br>
+          Asrama I, Jalan Tubagus Ismail III No. 10<br>
+          Telp. 022.250 1987</br>
+          Asrama II, Jalan Manteron No. 18<br>
+          Telp. 022.250 1987</br>
+          Asrama III, Jalan Gagak No. 03<br>
+          Telp. 022.250 1987</br>
+          Asrama IV, Jalan Manteron No. 22A
+          Telp. 022.250 1987</br>
         </address>
-
         <address>
-          <strong>Asrama II BPB</strong><br>
-          Jalan Manteron No. 18 Bandung<br>
-          Telp. 022.250 1987
-        </address>
-        <address>
-          <strong>Asrama III BPB</strong><br>
-          Jalan Gagak No. 03 Bandung<br>
-          Telp. 022.250 1987
+          <strong>Asrama UI Depok</strong><br>
+          Asrama I, Jalan Tubagus Ismail III No. 10<br>
+          Telp. 022.250 1987</br>
+          Asrama II, Jalan Manteron No. 18<br>
+          Telp. 022.250 1987</br>
         </address>
       </div>
 

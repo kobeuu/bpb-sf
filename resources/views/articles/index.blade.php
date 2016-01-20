@@ -14,7 +14,7 @@
         <ul class="post-list list-unstyled">
           @foreach ($articles as $article)
             <li class="post">
-              <h3 class="post-title">{{ $article->title }}</h3>
+              <a href="{{ url('/articles', $article->slug) }}"><h3 class="post-title">{{ $article->title }}</h3></a>
               <div class="tags">
     						<ul>
     							<span class="meta-post">Published on {{ $article->published_at }} | Writen by <a href="{{ url('/articles/user', $article->user->id) }}">{!! $article->user->name !!}</a>
@@ -36,7 +36,7 @@
 
                 <div class="media-body">
                   {!! substr($article->body, 0, 250 ) !!} ...
-                  <p class="btn-selengkapnya"><a href="{{ url('/articles', $article->id) }}" role="button">Selengkapnya</a></p>
+                  <p class="btn-selengkapnya"><a href="{{ url('/articles', $article->slug) }}" role="button">Selengkapnya</a></p>
                 </div>
               </div>
             </li>

@@ -38,8 +38,9 @@ class ArticlesController extends Controller
 	 * @return  Response
 	 */
 
-	public function show(Article $article)
+	public function show($slug)
 	{
+		$article = Article::where('slug', $slug)->first();
 		return view('articles.show', compact('article', 'tags'));
 	}
 
@@ -86,19 +87,20 @@ class ArticlesController extends Controller
 	 */
 	private function createArticle(ArticleRequest $request)
 	{
-		$article = new Article($request->except('image'));
-    	$article -> user_id = Auth::id();
+		$article = new Article($request->except(['image', 'slug']));
+    	$article->user_id = Auth::id();
+    	$article->slug = str_slug($request->title, '-');
 		if($request->hasFile('image'))
 	    {
 	        $file = $request->file('image');
 	        $filename = $file->getClientOriginalName();
-	        $extension = $file ->getClientOriginalExtension();
-	        $image = sha1($filename . time()) . '.' . $extension;
+	        $extension = $file->getClientOriginalExtension();
+	        $image = sha1($filename.time()).'.'.$extension;
 			$destinationPath = public_path('/uploads/images/');
 	        $request->file('image')->move($destinationPath, $image);
 			$article->image = $image;
 	    }
-		$article -> save();
+		$article->save();
 		$this->syncTags($article, $request->input('tag_list'));
 		return $article;
 	}
@@ -125,7 +127,7 @@ class ArticlesController extends Controller
 	public function update(Article $article, ArticleRequest $request)
 	{
 		$article->update($request->except('image'));
-
+		$article->slug = str_slug($request->title, '-');
 		if($request->hasFile('image'))
 	    {
 	        $file = $request->file('image');
@@ -135,9 +137,9 @@ class ArticlesController extends Controller
 			$destinationPath = public_path('/uploads/images/');
 	        $request->file('image')->move($destinationPath, $image);
 			$article->image = $image;
-			$article->update();
 	    }
-
+		$article->update();
+		
 		$this->syncTags($article, $request->input('tag_list'));
 
 		flash()->info('Artikel telah diperbarui!');
@@ -151,12 +153,12 @@ class ArticlesController extends Controller
    * @param $id
    * @return Response
    */
-  public function destroy(Article $article)
-  {
+	public function destroy(Article $article)
+	{
     $article->delete();
 		flash()->warning('Artikel telah dihapus!');
 		return redirect('dashboard/articles');
-  }
+	}
 
 	public function user(User $user)
 	{
