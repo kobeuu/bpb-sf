@@ -16,16 +16,18 @@
   <div class="container">
     <div class="row">
 
-      <div class="col-md-12">
+      <div class="col-md-12 text-center">
 
         <br/><br/>
         
-        <div class="form-group text-center">
-          <p>Nama Pendaftar <strong>NAMA PESERTA</strong></p>
-          <p>Asal Daerah <strong>NAMA DAERAH ASAL</strong> - Universitas <strong>NAMA UNIVERSITAS</strong></p>
-          <h2>Selamat Anda dinyatakan LULUS Seleksi Nasional BPB 2016</h2>
+        <div class="form-group">
+          <p>Nama Pendaftar <strong>{{ strtoupper($registrant->name) }}</strong></p>
+          <p>Asal Daerah <strong>{{ $registrant->kota }}</strong> - Universitas <strong>{{ $registrant->universitas }}</strong></p>
+          <h2>{{ $message }}</h2>
         </div>
         <br/><br/>
+          <p>Keputusan Panitia bersifat mutlak dan tidak bisa diganggu gugat</p>
+
 
       </div>
     </div>

@@ -30,10 +30,9 @@ class UsersController extends Controller {
 	{
 		$this->validate($request, [
 			'name' => 'required|min:3',
-			'email' => 'required',
+			'email' => 'required|email',
 		]);
 
-		flash()->success('Pengguna sudah ditambahkan!');
 
 		$user = new User($request->except(['password', 'avatar']));
 
@@ -48,6 +47,8 @@ class UsersController extends Controller {
 			$user->avatar= $name;
 			$user->save();
 	    }
+
+		flash()->success('Pengguna sudah ditambahkan!');
 
 		return redirect ('/dashboard/users');
 	}

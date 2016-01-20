@@ -56,8 +56,6 @@
 
       <div class="col-md-8">
 
-        @include('partials.flash')
-
         {!! Form::open(['url' => route('messages.store')]) !!}
 
         {!! Form::label('Nama Lengkap') !!}

@@ -40,6 +40,7 @@ Route::get('registrants/xlsx', 'RegistrantsController@exportToExcel');
 Route::get('registrants/show/{registrants}', 'RegistrantsController@show');
 Route::get('pendaftaran', 'RegistrantsController@create');
 Route::resource('registrants', 'RegistrantsController');
+Route::get('kelulusan', 'RegistrantsController@kelulusan');
 Route::post('kelulusan', 'RegistrantsController@cekKelulusan');
 
 /* Articles */

@@ -16,6 +16,7 @@
           <th>Asal SMA</th>
           <th>Asal Daerah</th>
           <th>Universitas</th>
+          <th>Seleksi</th>
         </tr>
         @foreach ($registrants as $registrant)
           <tr>
@@ -25,6 +26,13 @@
             <td>{{ $registrant->sma }}</td>
             <td>{{ $registrant->kota }}</td>
             <td>{{ $registrant->universitas }}</td>
+            <td>
+              @if ($registrant->kelulusan == 1)
+                <span class="label label-success">Lulus</span>
+              @else
+                <span class="label label-warning">Tidak Lulus</span>
+              @endif
+            </td>
           </tr>
         @endforeach
       </table>

@@ -20,7 +20,9 @@
 
     </div><!-- /.box-body -->
   </div><!-- /.box -->
-  <a href="#" class="btn btn-primary btn-block"><b>Terima</b></a>
+  {!! Form::open(['method' => 'PATCH', 'action' => ['RegistrantsController@update', $registrant->id]]) !!}
+        <button type="submit" class="btn btn-primary text-center">Lulus Seleksi</button>
+  {!! Form::close() !!}
 </div><!-- /.col -->
 
 <div class="col-md-9">

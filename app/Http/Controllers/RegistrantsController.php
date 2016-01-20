@@ -98,6 +98,13 @@ class registrantsController extends Controller {
 		return redirect('/pendaftaran');
 	}
 
+	public function update($request)
+	{
+		$id = $request->id;
+		\DB::table('registrants')->where('id', $id)->update(['kelulusan' => 1]);
+		return redirect('/dashboard/registrants');
+	}
+
 	public function exportToExcel()
 	{
 		Excel::create(Carbon::now().' - semua pendaftar', function ($excel)
@@ -116,9 +123,30 @@ class registrantsController extends Controller {
 		})->download('xlsx');
 	}
 
-	public function cekKelulusan()
+	public function kelulusan()
 	{
-		return view('registration.create');
+		return view('registration.kelulusan');
 	}
+
+	public function cekKelulusan(Request $request)
+	{
+		$this->validate($request, [
+			'email' => 'required|email',
+		]);
+
+		$email = $request->input('email');
+		$registrant = Registrant::where('email', $email)->first();
+		if($registrant->kelulusan == 1) {
+			$message = "Selamat Anda Dinyatakan LULUS Seleksi Nasional BPB 2016";
+		} else {
+			$message = "Maaf, anda belum lulus";
+		}
+		
+		return view('registration.lulus', compact('registrant', 'message'));
+		
+
+	}
+
+
 
 }

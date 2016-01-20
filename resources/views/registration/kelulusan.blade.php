@@ -16,20 +16,23 @@
   <div class="container">
     <div class="row">
 
-      <div class="col-md-12">
+      <div class="col-md-12 text-center">
 
         <br/><br/>
         
         @include('partials.flash')
 
-        <!-- Display Validation Errors -->
-        @include('errors.list')
-
         {!! Form::open(['url' => '/kelulusan', 'method' => "post"]) !!}
-        
-        <div class="form-group text-center">
-            {!! Form::label('Untuk melihat hasil, silakan masukan alamat email yang digunakan pada saat pendaftaran') !!}
+
+
+        {!! Form::label('Untuk melihat hasil, silakan masukan alamat email yang digunakan pada saat pendaftaran') !!}
+        <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
             {!! Form::text('email', null, ['class' => 'form-control']) !!}
+            @if ($errors->has('email'))
+                <span class="help-block">
+                  <strong>{{ $errors->first('email') }}</strong>
+                </span>
+            @endif
         </div>
 
         <div class="form-group text-center">
