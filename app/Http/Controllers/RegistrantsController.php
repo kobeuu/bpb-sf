@@ -73,28 +73,34 @@ class registrantsController extends Controller {
 			'mimpi' => 'required',
 			'moto' => 'required',
 			'foto' => 'required',
+			'lampiran' => 'required',
 			'checkbox' => 'required',
-		], $messages);
+
+		],[
+    		'required' => ':attribute harus diisi.',
+    		'checkbox.required' => 'Untuk mendaftar, anda harus menyetujui bahwa data yang dimasukan sudah benar',
+		]);
 		
 		$registrant = new Registrant($request->except('foto'));
 		
+		Mail::send('emails.konfirmasi',
+		['name' => $request->name, 'address' => $request->address ],
+		function($message) use ($request)
+		{
+			$message->to('kobeuu@gmail.com', 'Dede Iskandar')
+					->subject('welcome')
+					->attach($request->file('lampiran'), ['as' => $request->name, 'mime' => 'zip']);
+		});
+		
 		$file = $request->file('foto');
-        $extension = $file ->getClientOriginalExtension();
+        $extension = $file->getClientOriginalExtension();
         $name = Carbon::now(). ' - ' . $request->name . '.' . $extension;
 		$destinationPath = public_path('/uploads/registrants/');
         $request->file('foto')->move($destinationPath, $name);
 		$registrant->foto = $name;
 		$registrant->save();
 
-		// Mail::send('emails.konfirmasi',
-		// ['name' => $request->name, 'address' => $request->address ],
-		// function($message)
-		// {
-		// 	$message->to('kobeuu@gmail.com', 'Dede Iskandar')
-		// 			->subject('welcome');
-		// });
-
-		flash()->success('Pendaftaran anda telah kami terima!');
+		flash()->success('Terimakasih, Pendaftaran anda telah kami terima!');
 		return redirect('/pendaftaran');
 	}
 

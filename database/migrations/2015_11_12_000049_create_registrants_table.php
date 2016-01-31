@@ -29,10 +29,10 @@ class CreateRegistrantsTable extends Migration {
 			$table->string('universitas');
 			$table->string('fakultas');
 			$table->string('jurusan');
-			$table->string('anak');
-			$table->string('saudara');
-			$table->string('penghasilan');
-			$table->string('tanggungan');
+			$table->integer('anak');
+			$table->integer('saudara');
+			$table->integer('penghasilan');
+			$table->integer('tanggungan');
 			$table->text('tentang_keluarga');
 			$table->text('tentang_sahabat');
 			$table->text('tentang_ekonomi');
@@ -43,8 +43,8 @@ class CreateRegistrantsTable extends Migration {
 			$table->text('potensi');
 			$table->text('mimpi');
 			$table->text('moto');
-			$table->string('foto');
 			$table->integer('kelulusan')->default(0);
+			$table->string('foto')->nullable();
 			$table->timestamps();
 		});
 	}

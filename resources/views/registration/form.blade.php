@@ -390,7 +390,6 @@
 
           <br/>
           <h3>Pas Photo </h3>
-          <hr/>
           <div class="form-group">
               <div class="col-sm-12">
                 Pas Photo terbaru, format jpg/png, ukuran maksimal 256kB.
@@ -400,6 +399,23 @@
               @if ($errors->has('foto'))
                 <span class="help-block">
                   <strong>{{ $errors->first('foto') }}</strong>
+                </span>
+              @endif
+            </div>
+          </div>
+
+          <br/>
+          <h3>Berkas Lampiran </h3>
+          <hr/>
+          <div class="form-group">
+              <div class="col-sm-12">
+                Berkas lampiran, terdiri dari pas foto, ijazah, dan raport. semua berkas diarsipkan ke dalam .zip. ukuran tidak lebih dari 1 MB.
+              </div>
+              <div class="col-sm-12{{ $errors->has('lampiran') ? ' has-error' : '' }}">
+              {!! Form::file('lampiran') !!}
+              @if ($errors->has('lampiran'))
+                <span class="help-block">
+                  <strong>{{ $errors->first('lampiran') }}</strong>
                 </span>
               @endif
             </div>

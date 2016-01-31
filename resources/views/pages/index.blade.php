@@ -7,8 +7,9 @@
 
 @section('content')
 
-@include('partials.slider')
-
+@if (count($sliders))
+  @include('partials.slider')
+@endif
 <!-- empat karakter -->
 <section id="karakter">
   <div class="container text-center lead">
